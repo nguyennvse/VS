@@ -1,0 +1,17 @@
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\VS_Business.exe.config
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\VS_Business.exe
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\VS_Business.pdb
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.csprojAssemblyReference.cache
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Properties.Resources.resources
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.csproj.GenerateResource.cache
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.csproj.CoreCompileInputs.cache
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.exe
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.pdb
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\EntityFramework.dll
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\EntityFramework.SqlServer.dll
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\EntityFramework.xml
+M:\Project\VS\VS_Business\VS_Business\bin\Debug\EntityFramework.SqlServer.xml
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.csproj.CopyComplete
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Login.resources
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Menu.resources
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Accounts.resources
