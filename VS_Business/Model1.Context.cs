@@ -13,10 +13,10 @@ namespace VS_Business
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VB_BusinessEntities3 : DbContext
+    public partial class VB_BusinessEntities : DbContext
     {
-        public VB_BusinessEntities3()
-            : base("name=VB_BusinessEntities3")
+        public VB_BusinessEntities()
+            : base("name=VB_BusinessEntities")
         {
         }
     

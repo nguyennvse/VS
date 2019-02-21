@@ -9,11 +9,11 @@ namespace VS_Business.Model
     class RoleModel
     {
         public string name { get; set; }
-        public int roleid { get; set; }
-        public RoleModel(string name, int roleid)
+        public int value { get; set; }
+        public RoleModel(string name, int value)
         {
             this.name = name;
-            this.roleid = roleid;
+            this.value = value;
         }
     }
 }

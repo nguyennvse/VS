@@ -13,7 +13,7 @@ namespace VS_Business
         private void logInBtn_Click(object sender, EventArgs e)
         {
             
-            using (VB_BusinessEntities2 db = new VB_BusinessEntities2())
+            using (VB_BusinessEntities db = new VB_BusinessEntities())
             {
                 string username = txtUserName.Text;
                 string password = txtPassword.Text;

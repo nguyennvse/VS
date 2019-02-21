@@ -15,3 +15,5 @@ M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.csproj.CopyComplete
 M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Login.resources
 M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Menu.resources
 M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Accounts.resources
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Customer.resources
+M:\Project\VS\VS_Business\VS_Business\obj\Debug\VS_Business.Goods.resources

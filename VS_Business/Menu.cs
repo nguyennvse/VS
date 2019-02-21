@@ -23,5 +23,24 @@ namespace VS_Business
             empForm.Show();
             Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Customer cusForm = new Customer();
+            cusForm.Show();
+            Hide();
+        }
+
+        private void autherizeEmp()
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Goods goodForm = new Goods();
+            Hide();
+            goodForm.Show();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace VS_Business
 {
     public partial class Accounts : Form
     {
+        AccountModel currentAcc = new AccountModel("","","",0);
         public Accounts()
         {
             InitializeComponent();
@@ -30,75 +31,95 @@ namespace VS_Business
             cbRole.Items.Add(role3);
             cbRole.SelectedIndex = 2;
             cbRole.DisplayMember = "name";
-            cbRole.ValueMember = "roleid";
+            cbRole.ValueMember = "value";
         }
 
       
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dtgEmployee.Rows[e.RowIndex];
-            string username = row.Cells[0].Value.ToString();
-            string password = row.Cells[2].Value.ToString();
-            int role = int.Parse(row.Cells[3].Value.ToString());
-            DataGridViewColumn col = dtgEmployee.Columns[e.ColumnIndex];
-            switch (col.Name)
-            {
-                case "edit":
-                    editEmployee(username,password, role);
-                    break;
-                case "delete":
-                    deleteEmployee(username);
-                    break;
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            addEmployee(txtUsername.Text,txtPassword.Text,int.Parse(cbRole.SelectedValue.ToString()));
+            addEmployee(txtUsername.Text,txtPassword.Text, cbRole.Text);
+            searchEmp("");
+            clearForm();
         }
 
-        private void editEmployee(string username,string password, int role)
+        private void editEmployee(string usernameUpdate,string password, string role,string id)
         {
-            using (VB_BusinessEntities3 db = new VB_BusinessEntities3())
+            try
             {
-                Account acc = (from u in db.Accounts where u.username == username select u).Single();
-                acc.username = username;
-                acc.password = password;
-                acc.Role = role;
-                db.SaveChanges();
+                using (VB_BusinessEntities db = new VB_BusinessEntities())
+                {
+                    Account acc = (from u in db.Accounts where u.username == id select u).Single();
+                    acc.username = usernameUpdate;
+                    acc.password = password;
+                    acc.Role = role;
+                    db.SaveChanges();
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
             }
         }
 
-        private void deleteEmployee(string username)
+        private void deleteEmployee(int id)
         {
-            using (VB_BusinessEntities3 db = new VB_BusinessEntities3())
+            try
             {
-                Account acc = (from u in db.Accounts where u.username == username select u).Single();
-                db.Accounts.Remove(acc);
-                db.SaveChanges();
+                using (VB_BusinessEntities db = new VB_BusinessEntities())
+                {
+                    Account acc = (from u in db.Accounts where u.ID == id select u).Single();
+                    db.Accounts.Remove(acc);
+                    db.SaveChanges();
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+            
         }
 
-        private void addEmployee(string username, string password, int role)
+        private void addEmployee(string username, string password, string role)
         {
-            using (VB_BusinessEntities3 db = new VB_BusinessEntities3())
+            try
             {
-                Account acc = new Account();
-                acc.username = username;
-                acc.password = password;
-                acc.Role = role;
-                db.Accounts.Add(acc);
-                db.SaveChanges();
+                using (VB_BusinessEntities db = new VB_BusinessEntities())
+                {
+                    Account acc = new Account();
+                    acc.username = username;
+                    acc.password = password;
+                    acc.Role = role;
+                    db.Accounts.Add(acc);
+                    db.SaveChanges();
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+           
         }
 
         private void searchEmp(string username)
         {
-            using (VB_BusinessEntities3 db = new VB_BusinessEntities3())
+            try
             {
-                var listAcc = (from u in db.Accounts where u.username.Contains(username) select u).ToList();
-                dtgEmployee.DataSource = listAcc;
+                using (VB_BusinessEntities db = new VB_BusinessEntities())
+                {
+                    var listAcc = (from u in db.Accounts where u.username.Contains(username) select u).ToList();
+                    dtgEmployee.DataSource = listAcc;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
@@ -106,5 +127,52 @@ namespace VS_Business
         {
             searchEmp(txtSearch.Text);
         }
+        
+        private void viewDetail()
+        {
+            txtUsername.Text = currentAcc.username;
+            txtPassword.Text = currentAcc.password;
+            cbRole.SelectedIndex = cbRole.FindStringExact(currentAcc.role);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Menu m = new Menu();
+            Hide();
+            m.Show();
+        }
+
+        private void dtgEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dtgEmployee.Rows[e.RowIndex];
+            currentAcc.username = row.Cells[0].Value.ToString();
+            currentAcc.password = row.Cells[1].Value.ToString();
+            currentAcc.role = row.Cells[2].Value.ToString();
+            currentAcc.id = int.Parse(row.Cells[4].Value.ToString());
+            DataGridViewColumn col = dtgEmployee.Columns[e.ColumnIndex];
+            if (col.Name.Equals("Delete"))
+            {
+                deleteEmployee(currentAcc.id);
+                searchEmp("");
+            }
+            else
+            {
+                viewDetail();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            editEmployee(txtUsername.Text,txtPassword.Text, cbRole.Text, currentAcc.username);
+            searchEmp("");
+        }
+
+        private void clearForm()
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            cbRole.SelectedIndex = 0;
+        }
+        
     }
 }

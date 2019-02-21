@@ -16,6 +16,7 @@ namespace VS_Business
     {
         public string username { get; set; }
         public string password { get; set; }
-        public Nullable<int> Role { get; set; }
+        public string Role { get; set; }
+        public int ID { get; set; }
     }
 }

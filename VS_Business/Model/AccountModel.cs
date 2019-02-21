@@ -8,8 +8,16 @@ namespace VS_Business.Model
 {
     class AccountModel
     {
-        string username;
-        string password;
-        int role;
+        public string username;
+        public string password;
+        public string role;
+        public int id;
+        public AccountModel(string username,string password,string role,int id)
+        {
+            this.username = username;
+            this.password = password;
+            this.role = role;
+            this.id = id;
+        }
     }
 }
