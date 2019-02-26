@@ -42,5 +42,12 @@ namespace VS_Business
             Hide();
             goodForm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BuyGood buyGoodForm = new BuyGood();
+            Hide();
+            buyGoodForm.Show();
+        }
     }
 }
