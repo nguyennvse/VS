@@ -20,5 +20,6 @@ namespace VS_Business
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> Total { get; set; }
         public Nullable<int> OrderID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
     }
 }
