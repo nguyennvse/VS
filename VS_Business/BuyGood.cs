@@ -190,7 +190,7 @@ namespace VS_Business
 											  on bod.GoodCode equals good.Code
 											  join person in db.Personal_Info
 											  on bod.CustomerID equals person.ID
-											  where bod.ID == todayBO.ID
+											  where bod.OrderID == todayBO.ID
 											  select new { bod, good, person }).ToList();
 					object[,] exportData = new object[listGoods.Count + 1, listBuyOrderDetail.Count];
 					exportData[0, 0] = "Mã Sản Phẩm";
@@ -198,12 +198,50 @@ namespace VS_Business
 					exportData[0, 2] = "Giá";
 					exportData[0, 3] = "Số lượng";
 					exportData[0, 3] = "Tổng";
-					for (int i = 0; i <= listBuyOrderDetail.Count; i++)
+					var listGood = new List<dynamic>();
+					var listCus = new List<dynamic>();
+					for (int i = 0; i < listBuyOrderDetail.Count; i++)
 					{
+						dynamic g = new System.Dynamic.ExpandoObject();
+						g.quantity = listBuyOrderDetail[i].bod.Quantity;
+						g.code = listBuyOrderDetail[i].bod.GoodCode;
+						g.name = listBuyOrderDetail[i].bod.GoodName;
 
+						if (listGood.Count > 0)
+						{
+							int findGood = listGood.FindIndex(good => good.code == listBuyOrderDetail[i].bod.GoodCode);
+							if (findGood > -1)
+							{
+								listGood[findGood].quantity += listBuyOrderDetail[i].bod.Quantity;
+							}
+							else
+							{
+								listGood.Add(g);
+							}
+						}
+						else
+						{
+							listGood.Add(g);
+						}
+
+						dynamic c =  new System.Dynamic.ExpandoObject();
+						c.id = listBuyOrderDetail[i].bod.CustomerID;
+						c.name = listBuyOrderDetail[i].person.Name;
+						if (listCus.Count > 0)
+						{
+							int findCus = listCus.FindIndex(cus => cus.id == listBuyOrderDetail[i].bod.CustomerID);
+							if (findCus == -1)
+							{
+								listCus.Add(c);
+							}
+						}
+						else
+						{
+							listCus.Add(c);
+						}
 					}
 
-					for (int j = 0; j <= listGoods.Count; j++)
+					for (int j = 0; j < listGoods.Count; j++)
 					{
 						exportData[j + 1, j] = listBuyOrderDetail;
 					}
