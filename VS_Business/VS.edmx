@@ -14,6 +14,26 @@
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <EntityType Name="BuyOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Day" Type="date" />
+        </EntityType>
+        <EntityType Name="BuyOrderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="GoodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Total" Type="int" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+        </EntityType>
         <EntityType Name="Goods">
           <Key>
             <PropertyRef Name="ID" />
@@ -49,6 +69,8 @@
         </EntityType>
         <EntityContainer Name="VB_BusinessModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyOrder" EntityType="Self.BuyOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyOrderDetail" EntityType="Self.BuyOrderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_Info" EntityType="Self.Personal_Info" Schema="dbo" store:Type="Tables" />
@@ -66,6 +88,26 @@
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="BuyOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Day" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="BuyOrderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
         </EntityType>
         <EntityType Name="Good">
           <Key>
@@ -102,6 +144,8 @@
         </EntityType>
         <EntityContainer Name="VB_BusinessEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="BuyOrders" EntityType="Self.BuyOrder" />
+          <EntitySet Name="BuyOrderDetails" EntityType="Self.BuyOrderDetail" />
           <EntitySet Name="Goods" EntityType="Self.Good" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Personal_Info" EntityType="Self.Personal_Info" />
@@ -119,6 +163,28 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyOrders">
+            <EntityTypeMapping TypeName="VB_BusinessModel.BuyOrder">
+              <MappingFragment StoreEntitySet="BuyOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyOrderDetails">
+            <EntityTypeMapping TypeName="VB_BusinessModel.BuyOrderDetail">
+              <MappingFragment StoreEntitySet="BuyOrderDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GoodCode" ColumnName="GoodCode" />
+                <ScalarProperty Name="GoodName" ColumnName="GoodName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

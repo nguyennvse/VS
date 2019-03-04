@@ -1,16 +1,10 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using VS_Business.Model;
 using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace VS_Business
@@ -197,16 +191,18 @@ namespace VS_Business
 					exportData[0, 1] = "Tên";
 					exportData[0, 2] = "Giá";
 					exportData[0, 3] = "Số lượng";
-					exportData[0, 3] = "Tổng";
+					exportData[0, 4] = "Tổng";
 					var listGood = new List<dynamic>();
 					var listCus = new List<dynamic>();
+					var cusGoodMapping = new List<dynamic>();
+					var listBOD = new List<dynamic>();
 					for (int i = 0; i < listBuyOrderDetail.Count; i++)
 					{
 						dynamic g = new System.Dynamic.ExpandoObject();
 						g.quantity = listBuyOrderDetail[i].bod.Quantity;
 						g.code = listBuyOrderDetail[i].bod.GoodCode;
 						g.name = listBuyOrderDetail[i].bod.GoodName;
-
+						g.price = listBuyOrderDetail[i].good.Price;
 						if (listGood.Count > 0)
 						{
 							int findGood = listGood.FindIndex(good => good.code == listBuyOrderDetail[i].bod.GoodCode);
@@ -224,10 +220,12 @@ namespace VS_Business
 							listGood.Add(g);
 						}
 
-						dynamic c =  new System.Dynamic.ExpandoObject();
+						dynamic c = new System.Dynamic.ExpandoObject();
 						c.id = listBuyOrderDetail[i].bod.CustomerID;
 						c.name = listBuyOrderDetail[i].person.Name;
-						if (listCus.Count > 0)
+						c.goodcode = listBuyOrderDetail[i].bod.GoodCode;
+						c.quantity = listBuyOrderDetail[i].bod.Quantity;
+						if (listCus.Count  != -1)
 						{
 							int findCus = listCus.FindIndex(cus => cus.id == listBuyOrderDetail[i].bod.CustomerID);
 							if (findCus == -1)
@@ -239,12 +237,30 @@ namespace VS_Business
 						{
 							listCus.Add(c);
 						}
+
+						dynamic b = new System.Dynamic.ExpandoObject();
+						b.goodcode = listBuyOrderDetail[i].bod.GoodCode;
+						b.quantity = listBuyOrderDetail[i].bod.Quantity;
+						b.customerid = listBuyOrderDetail[i].bod.CustomerID;
+						if (listBOD.Count > 0)
+						{
+							int findBOD = listBOD.FindIndex(bod => bod.goodcode == listBuyOrderDetail[i].bod.GoodCode && bod.customerid == listBuyOrderDetail[i].bod.CustomerID);
+							if (findBOD == -1)
+							{
+								listBOD.Add(b);
+							}
+							else
+							{
+								listBOD[findBOD].quantity += listBuyOrderDetail[i].bod.Quantity;
+							}
+						}
+						else
+						{
+							listBOD.Add(b);
+						}
 					}
 
-					for (int j = 0; j < listGoods.Count; j++)
-					{
-						exportData[j + 1, j] = listBuyOrderDetail;
-					}
+
 					Application xlApp = new Application();
 					Workbook xlWorkBook;
 					Worksheet xlWorkSheet;
@@ -255,11 +271,36 @@ namespace VS_Business
 					xlWorkSheet.Cells[1, 2] = "Tên";
 					xlWorkSheet.Cells[1, 3] = "Giá";
 					xlWorkSheet.Cells[1, 4] = "Số lượng";
-					for (int i = 0; i < listGoods.Count; i++)
+					xlWorkSheet.Cells[1, 5] = "Tổng";
+					for (int i = 0; i < listCus.Count; i++)
 					{
-						xlWorkSheet.Cells[i + 2, 1] = listGoods[i].Code;
-						xlWorkSheet.Cells[i + 2, 2] = listGoods[i].Name;
-						xlWorkSheet.Cells[i + 2, 3] = listGoods[i].Price;
+						xlWorkSheet.Cells[1, i + 6] = listCus[i].name;
+						dynamic cgm = new System.Dynamic.ExpandoObject();
+						cgm.id = listCus[i].id;
+						cgm.index = i + 6;
+						cusGoodMapping.Add(cgm);
+					}
+					
+					for (int i = 0; i < listGood.Count; i++)
+					{
+						xlWorkSheet.Cells[i + 2, 1] = listGood[i].code;
+						xlWorkSheet.Cells[i + 2, 2] = listGood[i].name;
+						xlWorkSheet.Cells[i + 2, 3] = listGood[i].price;
+						xlWorkSheet.Cells[i + 2, 4] = listGood[i].quantity;
+						xlWorkSheet.Cells[i + 2, 5] = listGood[i].quantity * listGood[i].price;
+						foreach(dynamic bod in listBOD)
+						{
+							if(bod.goodcode == listGood[i].code)
+							{
+								foreach (dynamic cgm in cusGoodMapping)
+								{
+									if(cgm.id == bod.customerid)
+									{
+										xlWorkSheet.Cells[i + 2, cgm.index] = bod.quantity;
+									}
+								}
+							}
+						}
 					}
 					xlWorkBook.SaveAs("D:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 					   misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);

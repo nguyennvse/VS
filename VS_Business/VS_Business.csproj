@@ -39,6 +39,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,13 +60,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VS.tt</DependentUpon>
     </Compile>
     <Compile Include="Accounts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounts.Designer.cs">
       <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyGood.Designer.cs">
+      <DependentUpon>BuyGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyOrder.cs">
+      <DependentUpon>VS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuyOrderDetail.cs">
+      <DependentUpon>VS.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
       <SubType>Form</SubType>
@@ -71,7 +87,7 @@
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="Good.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VS.tt</DependentUpon>
     </Compile>
     <Compile Include="Goods.cs">
       <SubType>Form</SubType>
@@ -91,30 +107,16 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\AccountModel.cs" />
+    <Compile Include="Model\CustomerCBBModel.cs" />
     <Compile Include="Model\GoodModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Model\RoleModel.cs" />
     <Compile Include="Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VS.tt</DependentUpon>
     </Compile>
     <Compile Include="Personal_Info.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VS.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,9 +135,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VB_BusinessPersonalInfoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VS.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accounts.resx">
       <DependentUpon>Accounts.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyGood.resx">
+      <DependentUpon>BuyGood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
@@ -158,13 +178,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,6 +221,13 @@
     <None Include="VB_BusinessPersonalInfoDataSet.xss">
       <DependentUpon>VB_BusinessPersonalInfoDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="VS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="VS.edmx.diagram">
+      <DependentUpon>VS.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -216,15 +236,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="VS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="VS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
