@@ -7,30 +7,98 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VS_Business.Model;
 
 namespace VS_Business
 {
 	public partial class PriceLists : Form
 	{
+		PriceListDetailModel currentpldm = new PriceListDetailModel();
+		PriceList currentPL = new PriceList();
 		public PriceLists()
 		{
 			InitializeComponent();
 			Utility.loadCustomerCBB(cbbCustomer);
+			Utility.loadGoodsCBB(cbbGood);
+			currentPL = getCusTomerPriceList();
+			var list = new BindingList<PriceListDetailModel>(getCustomerPrilistDetail());
+			if (list != null && list.Count > 0)
+			{
+				dgvPriceListDetail.DataSource = list;
+				settingGrid();
+			}
+
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-
+			Menu menuform = new Menu();
+			menuform.Show();
+			Hide();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
+			try
+			{
+				if (currentPL != null)
+				{
+					dynamic cbb = cbbGood.SelectedItem;
+					string goodcode = cbb.Value.ToString();
+					if (goodcode != null)
+					{
+						using (VB_BusinessEntities db = new VB_BusinessEntities())
+						{
+							PriceListDetail findPLD = (from p in db.PriceListDetails
+													   where p.GoodCode == goodcode select p).SingleOrDefault();
+							if (findPLD == null)
+							{
+								PriceListDetail pld = new PriceListDetail();
+								pld.PriceListID = currentPL.ID;
+								pld.GoodCode = cbb.Value;
+								pld.Price = int.Parse(txtPrice.Text);
+								db.PriceListDetails.Add(pld);
+								db.SaveChanges();
+							}
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.StackTrace);
+			}
 
 		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-
+			try
+			{
+				if (currentPL != null)
+				{
+					dynamic cbb = cbbGood.SelectedItem;
+					string goodcode = cbb.Value.ToString();
+					if (goodcode != null)
+					{
+						using (VB_BusinessEntities db = new VB_BusinessEntities())
+						{
+							PriceListDetail findPLD = (from p in db.PriceListDetails
+													   where p.GoodCode == goodcode && p.PriceListID == currentPL.ID
+													   select p).SingleOrDefault();
+							if (findPLD != null && txtPrice.Text != null)
+							{
+								findPLD.Price = int.Parse(txtPrice.Text);
+								db.SaveChanges();
+							}
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.StackTrace);
+			}
 		}
 
 		private void button4_Click(object sender, EventArgs e)
@@ -218,6 +286,174 @@ namespace VS_Business
 			{
 				Console.WriteLine(ex.StackTrace);
 			}
+		}
+
+		private void cbbCustomer_SelectedValueChanged(object sender, EventArgs e)
+		{
+		}
+
+		private void cbbCustomer_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				var list = new BindingList<PriceListDetailModel>(getCustomerPrilistDetail());
+				if (list != null && list.Count > 0)
+				{
+					var bindingList = new BindingList<PriceListDetailModel>(list);
+					var source = new BindingSource(bindingList, null);
+					dgvPriceListDetail.DataSource = source;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.Write(ex.StackTrace);
+			}
+
+		}
+
+		private PriceList getCusTomerPriceList()
+		{
+			try
+			{
+				dynamic cbb = cbbCustomer.SelectedItem;
+				int? cusID = int.Parse(cbb.Value.ToString());
+				if (cbb != null)
+				{
+					using (VB_BusinessEntities db = new VB_BusinessEntities())
+					{
+						var pl = (from u in db.PriceLists where u.CustomerID == cusID select u).SingleOrDefault();
+						if (pl == null)
+						{
+							PriceList newpl = new PriceList();
+							newpl.CustomerID = cusID;
+							db.PriceLists.Add(newpl);
+							db.SaveChanges();
+							return newpl;
+						}
+						else
+						{
+							return pl;
+						}
+					}
+				}
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.StackTrace);
+				return null;
+			}
+		}
+
+		private List<PriceListDetailModel> getCustomerPrilistDetail()
+		{
+			try
+			{
+				if (currentPL != null)
+				{
+					List<PriceListDetailModel> result = new List<PriceListDetailModel>();
+					using (VB_BusinessEntities db = new VB_BusinessEntities())
+					{
+						var listPD = (from p in db.PriceListDetails
+									  join g in db.Goods
+									  on p.GoodCode equals g.Code
+									  where p.PriceListID == currentPL.ID
+									  select new { p, g }).ToList();
+						if (listPD != null)
+						{
+							foreach (var pd in listPD)
+							{
+								PriceListDetailModel pldm = new PriceListDetailModel(pd.g.Name, (int)pd.p.Price, pd.p.GoodCode);
+								result.Add(pldm);
+							}
+							return result;
+						}
+					}
+				}
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Console.Write(ex.StackTrace);
+				return null;
+			}
+		}
+
+		private void settingGrid()
+		{
+			DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
+			column1.Name = "namecl";
+			column1.HeaderText = "Tên sản phẩm";
+			column1.DataPropertyName = "name";
+			dgvPriceListDetail.Columns.Add(column1);
+
+			DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
+			column2.Name = "pricecl";
+			column2.HeaderText = "Giá";
+			column2.DataPropertyName = "price";
+			dgvPriceListDetail.Columns.Add(column2);
+
+			DataGridViewButtonColumn column3 = new DataGridViewButtonColumn();
+			column3.Name = "delete";
+			column3.HeaderText = "Xóa";
+			dgvPriceListDetail.Columns.Add(column3);
+
+			this.dgvPriceListDetail.Columns["name"].Visible = false;
+			this.dgvPriceListDetail.Columns["price"].Visible = false;
+			this.dgvPriceListDetail.Columns["code"].Visible = false;
+			this.dgvPriceListDetail.Columns["namecl"].Width = 300;
+			this.dgvPriceListDetail.Columns["pricecl"].Width = 150;
+		}
+
+		private void dgvPriceListDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				DataGridViewRow row = dgvPriceListDetail.Rows[e.RowIndex];
+				currentpldm.name = row.Cells[1].Value.ToString();
+				currentpldm.price = int.Parse(row.Cells[2].Value.ToString());
+				currentpldm.code = row.Cells[3].Value.ToString();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.StackTrace);
+			}
+
+			viewDetail();
+		}
+
+		private void viewDetail()
+		{
+			int index = cbbGood.FindStringExact(currentpldm.name);
+			cbbGood.SelectedIndex = index;
+			txtPrice.Text = currentpldm.price.ToString();
+		}
+
+		private void editPriceListDetail()
+		{
+			if(currentPL != null)
+			{
+				try
+				{
+					using (VB_BusinessEntities db = new VB_BusinessEntities())
+					{
+						PriceListDetail plm = (from p in db.PriceListDetails
+											   where p.PriceListID == currentPL.ID
+											   select p).SingleOrDefault();
+						if (plm != null && txtPrice.Text != null)
+						{
+							plm.Price = int.Parse(txtPrice.Text.ToString());
+							db.SaveChanges();
+							getCustomerPrilistDetail();
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.Write(ex.StackTrace);
+				}
+			}
+			
 		}
 	}
 }

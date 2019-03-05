@@ -115,6 +115,7 @@
     <Compile Include="Model\CustomerCBBModel.cs" />
     <Compile Include="Model\GoodModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
+    <Compile Include="Model\PriceListDetailModel.cs" />
     <Compile Include="Model\RoleModel.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>VS.tt</DependentUpon>
@@ -230,10 +231,6 @@
     <None Include="VB_BusinessGoods.xss">
       <DependentUpon>VB_BusinessGoods.xsd</DependentUpon>
     </None>
-    <EntityDeploy Include="VS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="VB_BusinessPersonalDataSet.xsc">
       <DependentUpon>VB_BusinessPersonalDataSet.xsd</DependentUpon>
     </None>
@@ -245,18 +242,12 @@
     <None Include="VB_BusinessPersonalDataSet.xss">
       <DependentUpon>VB_BusinessPersonalDataSet.xsd</DependentUpon>
     </None>
-    <None Include="VS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.Context.cs</LastGenOutput>
-    </None>
+    <EntityDeploy Include="VS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="VS.edmx.diagram">
       <DependentUpon>VS.edmx</DependentUpon>
-    </None>
-    <None Include="VS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +256,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="VS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
