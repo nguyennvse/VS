@@ -30,6 +30,8 @@ namespace VS_Business
         public virtual DbSet<BuyOrderDetail> BuyOrderDetails { get; set; }
         public virtual DbSet<Good> Goods { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Personal_Info> Personal_Info { get; set; }
+        public virtual DbSet<PersonalInfo> PersonalInfoes { get; set; }
+        public virtual DbSet<PriceList> PriceLists { get; set; }
+        public virtual DbSet<PriceListDetail> PriceListDetails { get; set; }
     }
 }

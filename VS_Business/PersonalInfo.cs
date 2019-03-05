@@ -12,12 +12,15 @@ namespace VS_Business
     using System;
     using System.Collections.Generic;
     
-    public partial class BuyOrderDetail
+    public partial class PersonalInfo
     {
         public int ID { get; set; }
-        public string GoodCode { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> CustomerID { get; set; }
+        public string Name { get; set; }
+        public string Company { get; set; }
+        public Nullable<int> MST { get; set; }
+        public Nullable<int> Phone { get; set; }
+        public Nullable<int> Fax { get; set; }
+        public string Email { get; set; }
+        public Nullable<int> Type { get; set; }
     }
 }

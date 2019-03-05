@@ -20,17 +20,17 @@ namespace VS_Business {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("VB_BusinessPersonalInfoDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("VB_BusinessPersonalDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class VB_BusinessPersonalInfoDataSet : global::System.Data.DataSet {
+    public partial class VB_BusinessPersonalDataSet : global::System.Data.DataSet {
         
-        private Personal_InfoDataTable tablePersonal_Info;
+        private PersonalInfoDataTable tablePersonalInfo;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public VB_BusinessPersonalInfoDataSet() {
+        public VB_BusinessPersonalDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VS_Business {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected VB_BusinessPersonalInfoDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected VB_BusinessPersonalDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace VS_Business {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Personal_Info"] != null)) {
-                    base.Tables.Add(new Personal_InfoDataTable(ds.Tables["Personal_Info"]));
+                if ((ds.Tables["PersonalInfo"] != null)) {
+                    base.Tables.Add(new PersonalInfoDataTable(ds.Tables["PersonalInfo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace VS_Business {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Personal_InfoDataTable Personal_Info {
+        public PersonalInfoDataTable PersonalInfo {
             get {
-                return this.tablePersonal_Info;
+                return this.tablePersonalInfo;
             }
         }
         
@@ -127,7 +127,7 @@ namespace VS_Business {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            VB_BusinessPersonalInfoDataSet cln = ((VB_BusinessPersonalInfoDataSet)(base.Clone()));
+            VB_BusinessPersonalDataSet cln = ((VB_BusinessPersonalDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace VS_Business {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Personal_Info"] != null)) {
-                    base.Tables.Add(new Personal_InfoDataTable(ds.Tables["Personal_Info"]));
+                if ((ds.Tables["PersonalInfo"] != null)) {
+                    base.Tables.Add(new PersonalInfoDataTable(ds.Tables["PersonalInfo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace VS_Business {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePersonal_Info = ((Personal_InfoDataTable)(base.Tables["Personal_Info"]));
+            this.tablePersonalInfo = ((PersonalInfoDataTable)(base.Tables["PersonalInfo"]));
             if ((initTable == true)) {
-                if ((this.tablePersonal_Info != null)) {
-                    this.tablePersonal_Info.InitVars();
+                if ((this.tablePersonalInfo != null)) {
+                    this.tablePersonalInfo.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace VS_Business {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "VB_BusinessPersonalInfoDataSet";
+            this.DataSetName = "VB_BusinessPersonalDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/VB_BusinessPersonalInfoDataSet.xsd";
+            this.Namespace = "http://tempuri.org/VB_BusinessPersonalDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePersonal_Info = new Personal_InfoDataTable();
-            base.Tables.Add(this.tablePersonal_Info);
+            this.tablePersonalInfo = new PersonalInfoDataTable();
+            base.Tables.Add(this.tablePersonalInfo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializePersonal_Info() {
+        private bool ShouldSerializePersonalInfo() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace VS_Business {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            VB_BusinessPersonalInfoDataSet ds = new VB_BusinessPersonalInfoDataSet();
+            VB_BusinessPersonalDataSet ds = new VB_BusinessPersonalDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace VS_Business {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void Personal_InfoRowChangeEventHandler(object sender, Personal_InfoRowChangeEvent e);
+        public delegate void PersonalInfoRowChangeEventHandler(object sender, PersonalInfoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Personal_InfoDataTable : global::System.Data.TypedTableBase<Personal_InfoRow> {
+        public partial class PersonalInfoDataTable : global::System.Data.TypedTableBase<PersonalInfoRow> {
             
             private global::System.Data.DataColumn columnID;
             
@@ -297,8 +297,8 @@ namespace VS_Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoDataTable() {
-                this.TableName = "Personal_Info";
+            public PersonalInfoDataTable() {
+                this.TableName = "PersonalInfo";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +306,7 @@ namespace VS_Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal Personal_InfoDataTable(global::System.Data.DataTable table) {
+            internal PersonalInfoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,7 +323,7 @@ namespace VS_Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected Personal_InfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PersonalInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -403,34 +403,34 @@ namespace VS_Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRow this[int index] {
+            public PersonalInfoRow this[int index] {
                 get {
-                    return ((Personal_InfoRow)(this.Rows[index]));
+                    return ((PersonalInfoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event Personal_InfoRowChangeEventHandler Personal_InfoRowChanging;
+            public event PersonalInfoRowChangeEventHandler PersonalInfoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event Personal_InfoRowChangeEventHandler Personal_InfoRowChanged;
+            public event PersonalInfoRowChangeEventHandler PersonalInfoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event Personal_InfoRowChangeEventHandler Personal_InfoRowDeleting;
+            public event PersonalInfoRowChangeEventHandler PersonalInfoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event Personal_InfoRowChangeEventHandler Personal_InfoRowDeleted;
+            public event PersonalInfoRowChangeEventHandler PersonalInfoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddPersonal_InfoRow(Personal_InfoRow row) {
+            public void AddPersonalInfoRow(PersonalInfoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRow AddPersonal_InfoRow(string Name, string Company, int MST, int Phone, int Fax, string Email, int Type) {
-                Personal_InfoRow rowPersonal_InfoRow = ((Personal_InfoRow)(this.NewRow()));
+            public PersonalInfoRow AddPersonalInfoRow(string Name, string Company, int MST, int Phone, int Fax, string Email, int Type) {
+                PersonalInfoRow rowPersonalInfoRow = ((PersonalInfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
@@ -440,22 +440,22 @@ namespace VS_Business {
                         Fax,
                         Email,
                         Type};
-                rowPersonal_InfoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPersonal_InfoRow);
-                return rowPersonal_InfoRow;
+                rowPersonalInfoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPersonalInfoRow);
+                return rowPersonalInfoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRow FindByID(int ID) {
-                return ((Personal_InfoRow)(this.Rows.Find(new object[] {
+            public PersonalInfoRow FindByID(int ID) {
+                return ((PersonalInfoRow)(this.Rows.Find(new object[] {
                             ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Personal_InfoDataTable cln = ((Personal_InfoDataTable)(base.Clone()));
+                PersonalInfoDataTable cln = ((PersonalInfoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,7 +463,7 @@ namespace VS_Business {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Personal_InfoDataTable();
+                return new PersonalInfoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,28 +513,28 @@ namespace VS_Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRow NewPersonal_InfoRow() {
-                return ((Personal_InfoRow)(this.NewRow()));
+            public PersonalInfoRow NewPersonalInfoRow() {
+                return ((PersonalInfoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Personal_InfoRow(builder);
+                return new PersonalInfoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Personal_InfoRow);
+                return typeof(PersonalInfoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Personal_InfoRowChanged != null)) {
-                    this.Personal_InfoRowChanged(this, new Personal_InfoRowChangeEvent(((Personal_InfoRow)(e.Row)), e.Action));
+                if ((this.PersonalInfoRowChanged != null)) {
+                    this.PersonalInfoRowChanged(this, new PersonalInfoRowChangeEvent(((PersonalInfoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -542,8 +542,8 @@ namespace VS_Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Personal_InfoRowChanging != null)) {
-                    this.Personal_InfoRowChanging(this, new Personal_InfoRowChangeEvent(((Personal_InfoRow)(e.Row)), e.Action));
+                if ((this.PersonalInfoRowChanging != null)) {
+                    this.PersonalInfoRowChanging(this, new PersonalInfoRowChangeEvent(((PersonalInfoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -551,8 +551,8 @@ namespace VS_Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Personal_InfoRowDeleted != null)) {
-                    this.Personal_InfoRowDeleted(this, new Personal_InfoRowChangeEvent(((Personal_InfoRow)(e.Row)), e.Action));
+                if ((this.PersonalInfoRowDeleted != null)) {
+                    this.PersonalInfoRowDeleted(this, new PersonalInfoRowChangeEvent(((PersonalInfoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -560,14 +560,14 @@ namespace VS_Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Personal_InfoRowDeleting != null)) {
-                    this.Personal_InfoRowDeleting(this, new Personal_InfoRowChangeEvent(((Personal_InfoRow)(e.Row)), e.Action));
+                if ((this.PersonalInfoRowDeleting != null)) {
+                    this.PersonalInfoRowDeleting(this, new PersonalInfoRowChangeEvent(((PersonalInfoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovePersonal_InfoRow(Personal_InfoRow row) {
+            public void RemovePersonalInfoRow(PersonalInfoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -576,7 +576,7 @@ namespace VS_Business {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                VB_BusinessPersonalInfoDataSet ds = new VB_BusinessPersonalInfoDataSet();
+                VB_BusinessPersonalDataSet ds = new VB_BusinessPersonalDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -594,7 +594,7 @@ namespace VS_Business {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Personal_InfoDataTable";
+                attribute2.FixedValue = "PersonalInfoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -638,25 +638,25 @@ namespace VS_Business {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Personal_InfoRow : global::System.Data.DataRow {
+        public partial class PersonalInfoRow : global::System.Data.DataRow {
             
-            private Personal_InfoDataTable tablePersonal_Info;
+            private PersonalInfoDataTable tablePersonalInfo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal Personal_InfoRow(global::System.Data.DataRowBuilder rb) : 
+            internal PersonalInfoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePersonal_Info = ((Personal_InfoDataTable)(this.Table));
+                this.tablePersonalInfo = ((PersonalInfoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tablePersonal_Info.IDColumn]));
+                    return ((int)(this[this.tablePersonalInfo.IDColumn]));
                 }
                 set {
-                    this[this.tablePersonal_Info.IDColumn] = value;
+                    this[this.tablePersonalInfo.IDColumn] = value;
                 }
             }
             
@@ -665,14 +665,14 @@ namespace VS_Business {
             public string Name {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonal_Info.NameColumn]));
+                        return ((string)(this[this.tablePersonalInfo.NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.NameColumn] = value;
+                    this[this.tablePersonalInfo.NameColumn] = value;
                 }
             }
             
@@ -681,14 +681,14 @@ namespace VS_Business {
             public string Company {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonal_Info.CompanyColumn]));
+                        return ((string)(this[this.tablePersonalInfo.CompanyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.CompanyColumn] = value;
+                    this[this.tablePersonalInfo.CompanyColumn] = value;
                 }
             }
             
@@ -697,14 +697,14 @@ namespace VS_Business {
             public int MST {
                 get {
                     try {
-                        return ((int)(this[this.tablePersonal_Info.MSTColumn]));
+                        return ((int)(this[this.tablePersonalInfo.MSTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MST\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MST\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.MSTColumn] = value;
+                    this[this.tablePersonalInfo.MSTColumn] = value;
                 }
             }
             
@@ -713,14 +713,14 @@ namespace VS_Business {
             public int Phone {
                 get {
                     try {
-                        return ((int)(this[this.tablePersonal_Info.PhoneColumn]));
+                        return ((int)(this[this.tablePersonalInfo.PhoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.PhoneColumn] = value;
+                    this[this.tablePersonalInfo.PhoneColumn] = value;
                 }
             }
             
@@ -729,14 +729,14 @@ namespace VS_Business {
             public int Fax {
                 get {
                     try {
-                        return ((int)(this[this.tablePersonal_Info.FaxColumn]));
+                        return ((int)(this[this.tablePersonalInfo.FaxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Fax\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fax\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.FaxColumn] = value;
+                    this[this.tablePersonalInfo.FaxColumn] = value;
                 }
             }
             
@@ -745,14 +745,14 @@ namespace VS_Business {
             public string Email {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonal_Info.EmailColumn]));
+                        return ((string)(this[this.tablePersonalInfo.EmailColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.EmailColumn] = value;
+                    this[this.tablePersonalInfo.EmailColumn] = value;
                 }
             }
             
@@ -761,99 +761,99 @@ namespace VS_Business {
             public int Type {
                 get {
                     try {
-                        return ((int)(this[this.tablePersonal_Info.TypeColumn]));
+                        return ((int)(this[this.tablePersonalInfo.TypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'Personal_Info\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'PersonalInfo\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersonal_Info.TypeColumn] = value;
+                    this[this.tablePersonalInfo.TypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNameNull() {
-                return this.IsNull(this.tablePersonal_Info.NameColumn);
+                return this.IsNull(this.tablePersonalInfo.NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNameNull() {
-                this[this.tablePersonal_Info.NameColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCompanyNull() {
-                return this.IsNull(this.tablePersonal_Info.CompanyColumn);
+                return this.IsNull(this.tablePersonalInfo.CompanyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCompanyNull() {
-                this[this.tablePersonal_Info.CompanyColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.CompanyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsMSTNull() {
-                return this.IsNull(this.tablePersonal_Info.MSTColumn);
+                return this.IsNull(this.tablePersonalInfo.MSTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMSTNull() {
-                this[this.tablePersonal_Info.MSTColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.MSTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPhoneNull() {
-                return this.IsNull(this.tablePersonal_Info.PhoneColumn);
+                return this.IsNull(this.tablePersonalInfo.PhoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPhoneNull() {
-                this[this.tablePersonal_Info.PhoneColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.PhoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFaxNull() {
-                return this.IsNull(this.tablePersonal_Info.FaxColumn);
+                return this.IsNull(this.tablePersonalInfo.FaxColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFaxNull() {
-                this[this.tablePersonal_Info.FaxColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.FaxColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEmailNull() {
-                return this.IsNull(this.tablePersonal_Info.EmailColumn);
+                return this.IsNull(this.tablePersonalInfo.EmailColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEmailNull() {
-                this[this.tablePersonal_Info.EmailColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.EmailColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsTypeNull() {
-                return this.IsNull(this.tablePersonal_Info.TypeColumn);
+                return this.IsNull(this.tablePersonalInfo.TypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTypeNull() {
-                this[this.tablePersonal_Info.TypeColumn] = global::System.Convert.DBNull;
+                this[this.tablePersonalInfo.TypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -861,22 +861,22 @@ namespace VS_Business {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class Personal_InfoRowChangeEvent : global::System.EventArgs {
+        public class PersonalInfoRowChangeEvent : global::System.EventArgs {
             
-            private Personal_InfoRow eventRow;
+            private PersonalInfoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRowChangeEvent(Personal_InfoRow row, global::System.Data.DataRowAction action) {
+            public PersonalInfoRowChangeEvent(PersonalInfoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Personal_InfoRow Row {
+            public PersonalInfoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -892,7 +892,7 @@ namespace VS_Business {
         }
     }
 }
-namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
+namespace VS_Business.VB_BusinessPersonalDataSetTableAdapters {
     
     
     /// <summary>
@@ -904,7 +904,7 @@ namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Personal_InfoTableAdapter : global::System.ComponentModel.Component {
+    public partial class PersonalInfoTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -918,7 +918,7 @@ namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public Personal_InfoTableAdapter() {
+        public PersonalInfoTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1015,7 +1015,7 @@ namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Personal_Info";
+            tableMapping.DataSetTable = "PersonalInfo";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Company", "Company");
@@ -1027,7 +1027,7 @@ namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Personal_Info] WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Company = 1 AND [Company] IS NULL) OR ([Company] = @Original_Company)) AND ((@IsNull_MST = 1 AND [MST] IS NULL) OR ([MST] = @Original_MST)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PersonalInfo] WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Company = 1 AND [Company] IS NULL) OR ([Company] = @Original_Company)) AND ((@IsNull_MST = 1 AND [MST] IS NULL) OR ([MST] = @Original_MST)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1046,8 +1046,8 @@ namespace VS_Business.VB_BusinessPersonalInfoDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Personal_Info] ([Name], [Company], [MST], [Phone], [Fax], [Email], [Type]) VALUES (@Name, @Company, @MST, @Phone, @Fax, @Email, @Type);
-SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PersonalInfo] ([Name], [Company], [MST], [Phone], [Fax], [Email], [Type]) VALUES (@Name, @Company, @MST, @Phone, @Fax, @Email, @Type);
+SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM PersonalInfo WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1058,8 +1058,8 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Personal_Info] SET [Name] = @Name, [Company] = @Company, [MST] = @MST, [Phone] = @Phone, [Fax] = @Fax, [Email] = @Email, [Type] = @Type WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Company = 1 AND [Company] IS NULL) OR ([Company] = @Original_Company)) AND ((@IsNull_MST = 1 AND [MST] IS NULL) OR ([MST] = @Original_MST)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)));
-SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[PersonalInfo] SET [Name] = @Name, [Company] = @Company, [MST] = @MST, [Phone] = @Phone, [Fax] = @Fax, [Email] = @Email, [Type] = @Type WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Company = 1 AND [Company] IS NULL) OR ([Company] = @Original_Company)) AND ((@IsNull_MST = 1 AND [MST] IS NULL) OR ([MST] = @Original_MST)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)));
+SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM PersonalInfo WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1090,7 +1090,7 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::VS_Business.Properties.Settings.Default.VB_BusinessConnectionString;
+            this._connection.ConnectionString = global::VS_Business.Properties.Settings.Default.VB_BusinessPersonalInfo;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1099,7 +1099,7 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM dbo.Personal_Info";
+            this._commandCollection[0].CommandText = "SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM dbo.PersonalInfo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1107,7 +1107,7 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(VB_BusinessPersonalInfoDataSet.Personal_InfoDataTable dataTable) {
+        public virtual int Fill(VB_BusinessPersonalDataSet.PersonalInfoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1120,9 +1120,9 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual VB_BusinessPersonalInfoDataSet.Personal_InfoDataTable GetData() {
+        public virtual VB_BusinessPersonalDataSet.PersonalInfoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            VB_BusinessPersonalInfoDataSet.Personal_InfoDataTable dataTable = new VB_BusinessPersonalInfoDataSet.Personal_InfoDataTable();
+            VB_BusinessPersonalDataSet.PersonalInfoDataTable dataTable = new VB_BusinessPersonalDataSet.PersonalInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1130,15 +1130,15 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VB_BusinessPersonalInfoDataSet.Personal_InfoDataTable dataTable) {
+        public virtual int Update(VB_BusinessPersonalDataSet.PersonalInfoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VB_BusinessPersonalInfoDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Personal_Info");
+        public virtual int Update(VB_BusinessPersonalDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "PersonalInfo");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1455,7 +1455,7 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         
         private UpdateOrderOption _updateOrder;
         
-        private Personal_InfoTableAdapter _personal_InfoTableAdapter;
+        private PersonalInfoTableAdapter _personalInfoTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1477,12 +1477,12 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Personal_InfoTableAdapter Personal_InfoTableAdapter {
+        public PersonalInfoTableAdapter PersonalInfoTableAdapter {
             get {
-                return this._personal_InfoTableAdapter;
+                return this._personalInfoTableAdapter;
             }
             set {
-                this._personal_InfoTableAdapter = value;
+                this._personalInfoTableAdapter = value;
             }
         }
         
@@ -1505,9 +1505,9 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._personal_InfoTableAdapter != null) 
-                            && (this._personal_InfoTableAdapter.Connection != null))) {
-                    return this._personal_InfoTableAdapter.Connection;
+                if (((this._personalInfoTableAdapter != null) 
+                            && (this._personalInfoTableAdapter.Connection != null))) {
+                    return this._personalInfoTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1522,7 +1522,7 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._personal_InfoTableAdapter != null)) {
+                if ((this._personalInfoTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1534,14 +1534,14 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(VB_BusinessPersonalInfoDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(VB_BusinessPersonalDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._personal_InfoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Personal_Info.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._personalInfoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PersonalInfo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._personal_InfoTableAdapter.Update(updatedRows));
+                    result = (result + this._personalInfoTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1553,13 +1553,13 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(VB_BusinessPersonalInfoDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(VB_BusinessPersonalDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._personal_InfoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Personal_Info.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._personalInfoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PersonalInfo.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._personal_InfoTableAdapter.Update(addedRows));
+                    result = (result + this._personalInfoTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1571,13 +1571,13 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(VB_BusinessPersonalInfoDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(VB_BusinessPersonalDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._personal_InfoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Personal_Info.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._personalInfoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PersonalInfo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._personal_InfoTableAdapter.Update(deletedRows));
+                    result = (result + this._personalInfoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1613,15 +1613,15 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(VB_BusinessPersonalInfoDataSet dataSet) {
+        public virtual int UpdateAll(VB_BusinessPersonalDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._personal_InfoTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._personal_InfoTableAdapter.Connection) == false))) {
+            if (((this._personalInfoTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._personalInfoTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1657,13 +1657,13 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._personal_InfoTableAdapter != null)) {
-                    revertConnections.Add(this._personal_InfoTableAdapter, this._personal_InfoTableAdapter.Connection);
-                    this._personal_InfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._personal_InfoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._personal_InfoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._personal_InfoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._personal_InfoTableAdapter.Adapter);
+                if ((this._personalInfoTableAdapter != null)) {
+                    revertConnections.Add(this._personalInfoTableAdapter, this._personalInfoTableAdapter.Connection);
+                    this._personalInfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._personalInfoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._personalInfoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._personalInfoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._personalInfoTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1724,9 +1724,9 @@ SELECT ID, Name, Company, MST, Phone, Fax, Email, Type FROM Personal_Info WHERE 
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._personal_InfoTableAdapter != null)) {
-                    this._personal_InfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._personal_InfoTableAdapter]));
-                    this._personal_InfoTableAdapter.Transaction = null;
+                if ((this._personalInfoTableAdapter != null)) {
+                    this._personalInfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._personalInfoTableAdapter]));
+                    this._personalInfoTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

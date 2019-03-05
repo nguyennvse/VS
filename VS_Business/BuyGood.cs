@@ -15,8 +15,7 @@ namespace VS_Business
 		public BuyGood()
 		{
 			InitializeComponent();
-			createBuyOrder();
-			loadCustomerCBB();
+			Utility.loadCustomerCBB(cbbCus);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -26,6 +25,7 @@ namespace VS_Business
 				using (VB_BusinessEntities db = new VB_BusinessEntities())
 				{
 					var listGoods = (from u in db.Goods select u).ToList();
+					//var listCus = (from u in db.Personal_Info where u.Type == 1  select u).ToList();
 					Application xlApp = new Application();
 					Workbook xlWorkBook;
 					Worksheet xlWorkSheet;
@@ -34,16 +34,20 @@ namespace VS_Business
 					xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
 					xlWorkSheet.Cells[1, 1] = "Mã Sản Phẩm";
 					xlWorkSheet.Cells[1, 2] = "Tên";
-					xlWorkSheet.Cells[1, 3] = "Giá";
-					xlWorkSheet.Cells[1, 4] = "Số lượng";
+					xlWorkSheet.Cells[1, 3] = "Số lượng";
 					for (int i = 0; i < listGoods.Count; i++)
 					{
 						xlWorkSheet.Cells[i + 2, 1] = listGoods[i].Code;
 						xlWorkSheet.Cells[i + 2, 2] = listGoods[i].Name;
-						xlWorkSheet.Cells[i + 2, 3] = listGoods[i].Price;
 					}
-					xlWorkBook.SaveAs("D:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
+
+					//for (int i = 0; i < listCus.Count; i++)
+					//{
+					//	xlWorkSheet.Cells[1, i+4] = listCus[i].Name + "-" + listCus[i].ID;
+					//}
+					xlWorkBook.SaveAs("D:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 					   misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
 					xlWorkBook.Close(true, misValue, misValue);
 					xlApp.Quit();
 
@@ -111,12 +115,13 @@ namespace VS_Business
 				using (VB_BusinessEntities db = new VB_BusinessEntities())
 				{
 					DateTime today = DateTime.Today;
-					var todayBuyOrder = (from u in db.BuyOrders where u.ID == 1 select u).Single();
+					var todayBuyOrder = (from u in db.BuyOrders where u.Day == today select u).SingleOrDefault();
 					if (todayBuyOrder == null)
 					{
 						BuyOrder bo = new BuyOrder();
 						bo.Day = today;
 						bo.Total = 0;
+						db.BuyOrders.Add(bo);
 						db.SaveChanges();
 						return bo;
 					}
@@ -141,9 +146,7 @@ namespace VS_Business
 				{
 					BuyOrderDetail buyOrderDetail = new BuyOrderDetail();
 					buyOrderDetail.GoodCode = goodCode;
-					buyOrderDetail.GoodName = goodName;
 					buyOrderDetail.Quantity = quantity;
-					buyOrderDetail.Total = price * quantity;
 					buyOrderDetail.ID = orderID;
 					buyOrderDetail.CustomerID = cusID;
 					db.BuyOrderDetails.Add(buyOrderDetail);
@@ -154,22 +157,10 @@ namespace VS_Business
 			{
 				Console.Write(ex.StackTrace);
 			}
+			
 		}
 
-		private void loadCustomerCBB()
-		{
-			cbbCus.DisplayMember = "Text";
-			cbbCus.ValueMember = "Value";
-			using (VB_BusinessEntities db = new VB_BusinessEntities())
-			{
-				var cusList = (from c in db.Personal_Info where c.Type == 0 select c).ToList();
-				foreach (var cus in cusList)
-				{
-					cbbCus.Items.Add(new { Text = cus.Name, Value = cus.ID });
-				}
-			}
-			cbbCus.SelectedIndex = 1;
-		}
+		
 
 		private void button5_Click(object sender, EventArgs e)
 		{
@@ -182,7 +173,7 @@ namespace VS_Business
 					var listBuyOrderDetail = (from bod in db.BuyOrderDetails
 											  join good in db.Goods
 											  on bod.GoodCode equals good.Code
-											  join person in db.Personal_Info
+											  join person in db.PersonalInfoes
 											  on bod.CustomerID equals person.ID
 											  where bod.OrderID == todayBO.ID
 											  select new { bod, good, person }).ToList();
@@ -201,7 +192,7 @@ namespace VS_Business
 						dynamic g = new System.Dynamic.ExpandoObject();
 						g.quantity = listBuyOrderDetail[i].bod.Quantity;
 						g.code = listBuyOrderDetail[i].bod.GoodCode;
-						g.name = listBuyOrderDetail[i].bod.GoodName;
+						g.name = listBuyOrderDetail[i].good.Name;
 						g.price = listBuyOrderDetail[i].good.Price;
 						if (listGood.Count > 0)
 						{

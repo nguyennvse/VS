@@ -16,19 +16,21 @@ namespace VS_Business
 
         private void Customer_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'vB_BusinessPersonalInfoDataSet.Personal_Info' table. You can move, or remove it, as needed.
-            this.personal_InfoTableAdapter.Fill(this.vB_BusinessPersonalInfoDataSet.Personal_Info);
+			// TODO: This line of code loads data into the 'vB_BusinessPersonalDataSet.PersonalInfo' table. You can move, or remove it, as needed.
+			this.personalInfoTableAdapter.Fill(this.vB_BusinessPersonalDataSet.PersonalInfo);
+			// TODO: This line of code loads data into the 'vB_BusinessPersonalInfoDataSet.PersonalInfo' table. You can move, or remove it, as needed.
+			//this.PersonalInfoTableAdapter.Fill(this.vB_BusinessPersonalInfoDataSet.Personal_Info);
 
 
-        }
+		}
 
-        private void editCus(int id, string name, string company, int mst, int phone, string email, int fax)
+		private void editCus(int id, string name, string company, int mst, int phone, string email, int fax)
         {
             try
             {
                 using (VB_BusinessEntities db = new VB_BusinessEntities())
                 {
-                    Personal_Info cus = (from u in db.Personal_Info where u.ID == id select u).Single();
+                    PersonalInfo cus = (from u in db.PersonalInfoes where u.ID == id select u).Single();
                     cus.Name = name;
                     cus.Company = company;
                     cus.MST = mst;
@@ -48,8 +50,8 @@ namespace VS_Business
         {
             using (VB_BusinessEntities db = new VB_BusinessEntities())
             {
-                Personal_Info cus = (from u in db.Personal_Info where u.Name == name select u).Single();
-                db.Personal_Info.Remove(cus);
+                PersonalInfo cus = (from u in db.PersonalInfoes where u.Name == name select u).Single();
+                db.PersonalInfoes.Remove(cus);
                 db.SaveChanges();
             }
         }
@@ -60,7 +62,7 @@ namespace VS_Business
             {
                 using (VB_BusinessEntities db = new VB_BusinessEntities())
                 {
-                    Personal_Info cus = new Personal_Info();
+                    PersonalInfo cus = new PersonalInfo();
                     cus.Name = name;
                     cus.Company = company;
                     cus.MST = mst;
@@ -68,7 +70,7 @@ namespace VS_Business
                     cus.Email = email;
                     cus.Fax = fax;
                     cus.Type = 0;
-                    db.Personal_Info.Add(cus);
+                    db.PersonalInfoes.Add(cus);
                     db.SaveChanges();
                 }
             }
@@ -85,7 +87,7 @@ namespace VS_Business
             {
                 using (VB_BusinessEntities db = new VB_BusinessEntities())
                 {
-                    var listCus = (from u in db.Personal_Info where u.Name.Contains(username) select u).ToList();
+                    var listCus = (from u in db.PersonalInfoes where u.Name.Contains(username) select u).ToList();
                     dgvCustomer.DataSource = listCus;
                 }
             }

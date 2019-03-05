@@ -33,5 +33,16 @@ namespace VS_Business.Properties {
                 return ((string)(this["VB_BusinessConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CSCVIEAI374201\\SQLEXPRESS;Initial Catalog=VB_Business;Persist Securit" +
+            "y Info=True;User ID=sa;Password=neyugnhniv1!")]
+        public string VB_BusinessPersonalInfo {
+            get {
+                return ((string)(this["VB_BusinessPersonalInfo"]));
+            }
+        }
     }
 }

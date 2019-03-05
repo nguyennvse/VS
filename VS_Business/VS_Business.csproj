@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IronPdf, Version=5.0.5.17148, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.5.0.5.2\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -48,6 +51,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -115,11 +119,24 @@
     <Compile Include="Order.cs">
       <DependentUpon>VS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Personal_Info.cs">
+    <Compile Include="PersonalInfo.cs">
       <DependentUpon>VS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceList.cs">
+      <DependentUpon>VS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListDetail.cs">
+      <DependentUpon>VS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PriceLists.Designer.cs">
+      <DependentUpon>PriceLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
     <Compile Include="VB_BusinessDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,10 +147,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VB_BusinessGoods.xsd</DependentUpon>
     </Compile>
-    <Compile Include="VB_BusinessPersonalInfoDataSet.Designer.cs">
+    <Compile Include="VB_BusinessPersonalDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VB_BusinessPersonalInfoDataSet.xsd</DependentUpon>
+      <DependentUpon>VB_BusinessPersonalDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="VS.Context.cs">
       <AutoGen>True</AutoGen>
@@ -168,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriceLists.resx">
+      <DependentUpon>PriceLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -210,23 +230,33 @@
     <None Include="VB_BusinessGoods.xss">
       <DependentUpon>VB_BusinessGoods.xsd</DependentUpon>
     </None>
-    <None Include="VB_BusinessPersonalInfoDataSet.xsc">
-      <DependentUpon>VB_BusinessPersonalInfoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VB_BusinessPersonalInfoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VB_BusinessPersonalInfoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="VB_BusinessPersonalInfoDataSet.xss">
-      <DependentUpon>VB_BusinessPersonalInfoDataSet.xsd</DependentUpon>
-    </None>
     <EntityDeploy Include="VS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VS.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="VB_BusinessPersonalDataSet.xsc">
+      <DependentUpon>VB_BusinessPersonalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VB_BusinessPersonalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VB_BusinessPersonalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VB_BusinessPersonalDataSet.xss">
+      <DependentUpon>VB_BusinessPersonalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.Context.cs</LastGenOutput>
+    </None>
     <None Include="VS.edmx.diagram">
       <DependentUpon>VS.edmx</DependentUpon>
+    </None>
+    <None Include="VS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -235,17 +265,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="VS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="VS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
