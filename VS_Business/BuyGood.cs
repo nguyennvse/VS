@@ -40,11 +40,6 @@ namespace VS_Business
 						xlWorkSheet.Cells[i + 2, 1] = listGoods[i].Code;
 						xlWorkSheet.Cells[i + 2, 2] = listGoods[i].Name;
 					}
-
-					//for (int i = 0; i < listCus.Count; i++)
-					//{
-					//	xlWorkSheet.Cells[1, i+4] = listCus[i].Name + "-" + listCus[i].ID;
-					//}
 					xlWorkBook.SaveAs("D:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 					   misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
@@ -79,9 +74,10 @@ namespace VS_Business
 				{
 					filePath = openFileDialog.FileName;
 
-					dynamic model = cbbCus.SelectedItem;
-					if (todayBO != null && model != null)
+					dynamic cus = cbbCus.SelectedItem;
+					if (todayBO != null && cus !=null)
 					{
+						int cusID = int.Parse(cus.Value.ToString());
 						Application xlApp;
 						Workbook xlWorkBook;
 						Worksheet xlWorkSheet;
@@ -96,7 +92,7 @@ namespace VS_Business
 							string name = (string)(range.Cells[i, 2] as Range).Value;
 							int price = (int)(range.Cells[i, 3] as Range).Value;
 							int quantity = (int)(range.Cells[i, 4] as Range).Value;
-							createBuyOrderDetail(code, name, quantity, price, todayBO.ID, model.Value);
+							createBuyOrderDetail(code, name, quantity, price, todayBO.ID, cusID);
 						}
 						xlWorkBook.Close(true, null, null);
 						xlApp.Quit();
@@ -157,11 +153,8 @@ namespace VS_Business
 			{
 				Console.Write(ex.StackTrace);
 			}
-			
 		}
-
 		
-
 		private void button5_Click(object sender, EventArgs e)
 		{
 			try

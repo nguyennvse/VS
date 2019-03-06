@@ -178,7 +178,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(776, 187);
+			this.label5.Location = new System.Drawing.Point(394, 26);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(84, 17);
 			this.label5.TabIndex = 14;
@@ -187,7 +187,7 @@
 			// cbbCus
 			// 
 			this.cbbCus.FormattingEnabled = true;
-			this.cbbCus.Location = new System.Drawing.Point(900, 187);
+			this.cbbCus.Location = new System.Drawing.Point(518, 26);
 			this.cbbCus.Name = "cbbCus";
 			this.cbbCus.Size = new System.Drawing.Size(176, 21);
 			this.cbbCus.TabIndex = 15;
