@@ -17,5 +17,6 @@ namespace VS_Business
         public int ID { get; set; }
         public Nullable<int> Total { get; set; }
         public Nullable<System.DateTime> Day { get; set; }
+        public Nullable<int> CustomerID { get; set; }
     }
 }

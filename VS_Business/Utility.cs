@@ -38,5 +38,11 @@ namespace VS_Business
 			}
 			cbb.SelectedIndex = 0;
 		}
+
+		public static string getCbbValue(ComboBox cbb)
+		{
+			dynamic item = cbb.SelectedItem;
+			return item.Value.ToString();
+		}
 	}
 }

@@ -112,6 +112,7 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AccountModel.cs" />
+    <Compile Include="Model\BDOListModel.cs" />
     <Compile Include="Model\CustomerCBBModel.cs" />
     <Compile Include="Model\GoodModel.cs" />
     <Compile Include="Model\PersonModel.cs" />

@@ -15,6 +15,7 @@ namespace VS_Business
 	{
 		PriceListDetailModel currentpldm = new PriceListDetailModel();
 		PriceList currentPL = new PriceList();
+
 		public PriceLists()
 		{
 			InitializeComponent();
@@ -228,10 +229,10 @@ namespace VS_Business
 					var listBuyOrderDetail = (from bod in db.BuyOrderDetails
 																		join bo in db.BuyOrders on bod.OrderID equals bo.ID
 																		join good in db.Goods on bod.GoodCode equals good.Code
-																		join person in db.PersonalInfoes on bod.CustomerID equals person.ID
+																		join person in db.PersonalInfoes on bo.CustomerID equals person.ID
 																		join pl in db.PriceLists on cusID equals pl.CustomerID
 																		join pld in db.PriceListDetails on pl.ID equals pld.PriceListID
-																		where bod.CustomerID == cusID
+																		where bo.CustomerID == cusID
 																		where bod.GoodCode == pld.GoodCode
 																		where bo.Day == dayPrint
 																		select new { bod, good, person, pld }).ToList();
@@ -501,8 +502,7 @@ namespace VS_Business
 			dgvPriceListDetail.Columns.Clear();
 			if (list != null && list.Count > 0)
 			{
-				var bindingList = new BindingList<PriceListDetailModel>(list);
-				var source = new BindingSource(bindingList, null);
+				var source = new BindingSource(list, null);
 				dgvPriceListDetail.DataSource = source;
 				setting();
 			}
