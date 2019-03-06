@@ -11,13 +11,15 @@ namespace VS_Business.Model
 		public string name { get; set; }
 		public int price { get; set; }
 		public string code { get; set; }
+		public int id { get; set; }
 		public PriceListDetailModel()
 		{
 
 		}
 
-		public PriceListDetailModel(string name, int price,string code)
+		public PriceListDetailModel(string name, int price,string code,int id)
 		{
+			this.id = id;
 			this.name = name;
 			this.price = price;
 			this.code = code;

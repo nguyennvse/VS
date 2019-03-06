@@ -73,7 +73,7 @@
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button4.Location = new System.Drawing.Point(35, 207);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(175, 50);
+			this.button4.Size = new System.Drawing.Size(175, 42);
 			this.button4.TabIndex = 3;
 			this.button4.Text = "Mua Hàng";
 			this.button4.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
 			// button5
 			// 
 			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(35, 277);
+			this.button5.Location = new System.Drawing.Point(35, 267);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(175, 61);
+			this.button5.Size = new System.Drawing.Size(175, 42);
 			this.button5.TabIndex = 4;
 			this.button5.Text = "Bảng giá";
 			this.button5.UseVisualStyleBackColor = true;

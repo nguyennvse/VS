@@ -39,6 +39,8 @@
 			this.button3 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.cbbGood = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.dtpPrint = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPriceListDetail)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -60,7 +62,6 @@
 			this.cbbCustomer.Size = new System.Drawing.Size(193, 21);
 			this.cbbCustomer.TabIndex = 1;
 			this.cbbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbbCustomer_SelectedIndexChanged);
-			this.cbbCustomer.SelectedValueChanged += new System.EventHandler(this.cbbCustomer_SelectedValueChanged);
 			// 
 			// dgvPriceListDetail
 			// 
@@ -134,11 +135,11 @@
 			// button4
 			// 
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(669, 355);
+			this.button4.Location = new System.Drawing.Point(692, 378);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(212, 63);
+			this.button4.Size = new System.Drawing.Size(163, 40);
 			this.button4.TabIndex = 10;
-			this.button4.Text = "In Hóa Đơn Bán Hàng Theo Bảng Giá";
+			this.button4.Text = "In Hóa Đơn Bán Hàng";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
@@ -150,11 +151,33 @@
 			this.cbbGood.Size = new System.Drawing.Size(133, 21);
 			this.cbbGood.TabIndex = 11;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(656, 339);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(41, 17);
+			this.label4.TabIndex = 12;
+			this.label4.Text = "Ngày";
+			// 
+			// dtpPrint
+			// 
+			this.dtpPrint.CustomFormat = "dd-mm-yyy";
+			this.dtpPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtpPrint.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpPrint.Location = new System.Drawing.Point(703, 339);
+			this.dtpPrint.Name = "dtpPrint";
+			this.dtpPrint.Size = new System.Drawing.Size(190, 20);
+			this.dtpPrint.TabIndex = 13;
+			// 
 			// PriceLists
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(912, 439);
+			this.Controls.Add(this.dtpPrint);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.cbbGood);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
@@ -187,5 +210,7 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.ComboBox cbbGood;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.DateTimePicker dtpPrint;
 	}
 }
