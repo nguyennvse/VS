@@ -22,5 +22,6 @@ namespace VS_Business
         public Nullable<int> Fax { get; set; }
         public string Email { get; set; }
         public Nullable<int> Type { get; set; }
+        public Nullable<int> isDelete { get; set; }
     }
 }

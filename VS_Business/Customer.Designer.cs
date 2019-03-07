@@ -30,7 +30,7 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.dgvCustomer = new System.Windows.Forms.DataGridView();
-			this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.txtSearch = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -48,19 +48,7 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
-			this.vB_BusinessPersonalDataSet = new VS_Business.VB_BusinessPersonalDataSet();
-			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.personalInfoTableAdapter = new VS_Business.VB_BusinessPersonalDataSetTableAdapters.PersonalInfoTableAdapter();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.vB_BusinessPersonalDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -70,16 +58,6 @@
 			this.dgvCustomer.AllowUserToDeleteRows = false;
 			this.dgvCustomer.AutoGenerateColumns = false;
 			this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.delete,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
 			this.dgvCustomer.DataSource = this.bindingSource1;
 			this.dgvCustomer.Location = new System.Drawing.Point(27, 71);
 			this.dgvCustomer.Name = "dgvCustomer";
@@ -88,13 +66,9 @@
 			this.dgvCustomer.TabIndex = 0;
 			this.dgvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellClick);
 			// 
-			// delete
+			// bindingSource1
 			// 
-			this.delete.HeaderText = "Xóa";
-			this.delete.Name = "delete";
-			this.delete.ReadOnly = true;
-			this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.bindingSource1.DataMember = "PersonalInfo";
 			// 
 			// txtSearch
 			// 
@@ -105,9 +79,9 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(693, 31);
+			this.button1.Location = new System.Drawing.Point(659, 24);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.Size = new System.Drawing.Size(99, 35);
 			this.button1.TabIndex = 2;
 			this.button1.Text = "Tìm Kiếm";
 			this.button1.UseVisualStyleBackColor = true;
@@ -220,7 +194,7 @@
 			// 
 			this.button2.Location = new System.Drawing.Point(802, 313);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(101, 23);
+			this.button2.Size = new System.Drawing.Size(101, 35);
 			this.button2.TabIndex = 15;
 			this.button2.Text = "Trở về Menu";
 			this.button2.UseVisualStyleBackColor = true;
@@ -230,7 +204,7 @@
 			// 
 			this.button3.Location = new System.Drawing.Point(924, 313);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(101, 23);
+			this.button3.Size = new System.Drawing.Size(101, 35);
 			this.button3.TabIndex = 16;
 			this.button3.Text = "Sửa";
 			this.button3.UseVisualStyleBackColor = true;
@@ -240,81 +214,11 @@
 			// 
 			this.button4.Location = new System.Drawing.Point(1042, 313);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(101, 23);
+			this.button4.Size = new System.Drawing.Size(101, 35);
 			this.button4.TabIndex = 17;
 			this.button4.Text = "Thêm mới";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
-			// 
-			// vB_BusinessPersonalDataSet
-			// 
-			this.vB_BusinessPersonalDataSet.DataSetName = "VB_BusinessPersonalDataSet";
-			this.vB_BusinessPersonalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// bindingSource1
-			// 
-			this.bindingSource1.DataMember = "PersonalInfo";
-			this.bindingSource1.DataSource = this.vB_BusinessPersonalDataSet;
-			// 
-			// personalInfoTableAdapter
-			// 
-			this.personalInfoTableAdapter.ClearBeforeFill = true;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "ID";
-			this.dataGridViewTextBoxColumn9.HeaderText = "ID";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			this.dataGridViewTextBoxColumn9.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this.dataGridViewTextBoxColumn10.DataPropertyName = "Name";
-			this.dataGridViewTextBoxColumn10.HeaderText = "Name";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			this.dataGridViewTextBoxColumn10.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn11
-			// 
-			this.dataGridViewTextBoxColumn11.DataPropertyName = "Company";
-			this.dataGridViewTextBoxColumn11.HeaderText = "Company";
-			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-			this.dataGridViewTextBoxColumn11.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn12
-			// 
-			this.dataGridViewTextBoxColumn12.DataPropertyName = "MST";
-			this.dataGridViewTextBoxColumn12.HeaderText = "MST";
-			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-			this.dataGridViewTextBoxColumn12.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn13
-			// 
-			this.dataGridViewTextBoxColumn13.DataPropertyName = "Phone";
-			this.dataGridViewTextBoxColumn13.HeaderText = "Phone";
-			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-			this.dataGridViewTextBoxColumn13.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn14
-			// 
-			this.dataGridViewTextBoxColumn14.DataPropertyName = "Fax";
-			this.dataGridViewTextBoxColumn14.HeaderText = "Fax";
-			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-			this.dataGridViewTextBoxColumn14.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn15
-			// 
-			this.dataGridViewTextBoxColumn15.DataPropertyName = "Email";
-			this.dataGridViewTextBoxColumn15.HeaderText = "Email";
-			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-			this.dataGridViewTextBoxColumn15.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn16
-			// 
-			this.dataGridViewTextBoxColumn16.DataPropertyName = "Type";
-			this.dataGridViewTextBoxColumn16.HeaderText = "Type";
-			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-			this.dataGridViewTextBoxColumn16.ReadOnly = true;
 			// 
 			// Customer
 			// 
@@ -343,7 +247,6 @@
 			this.Text = "Customer";
 			this.Load += new System.EventHandler(this.Customer_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.vB_BusinessPersonalDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -387,10 +290,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
-		private VB_BusinessPersonalDataSet vB_BusinessPersonalDataSet;
 		private System.Windows.Forms.BindingSource bindingSource1;
-		private VB_BusinessPersonalDataSetTableAdapters.PersonalInfoTableAdapter personalInfoTableAdapter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;

@@ -18,5 +18,6 @@ namespace VS_Business
         public Nullable<int> PriceListID { get; set; }
         public string GoodCode { get; set; }
         public Nullable<int> Price { get; set; }
+        public Nullable<int> isDelete { get; set; }
     }
 }

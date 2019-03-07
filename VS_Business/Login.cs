@@ -17,7 +17,9 @@ namespace VS_Business
             {
                 string username = txtUserName.Text;
                 string password = txtPassword.Text;
-                var result = (from a in db.Accounts where a.username == username && a.password==password select a).FirstOrDefault<Account>();
+                var result = (from a in db.Accounts
+															where a.username == username && a.password==password && a.isDelete == 0
+															select a).FirstOrDefault<Account>();
                 if(result != null)
                 {
                     Menu menu = new Menu();

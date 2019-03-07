@@ -37,11 +37,22 @@ namespace VS_Business.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CSCVIEAI374201\\SQLEXPRESS;Initial Catalog=VB_Business;Persist Securit" +
-            "y Info=True;User ID=sa;Password=neyugnhniv1!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-Q4PKRP2\\SQLEXPRESS;Initial Catalog=VB_Business;Persist Securi" +
+            "ty Info=True;User ID=sa;Password=123456")]
         public string VB_BusinessPersonalInfo {
             get {
                 return ((string)(this["VB_BusinessPersonalInfo"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CSCVIEAI374201\\SQLEXPRESS;Initial Catalog=VB_Business;Persist Securit" +
+            "y Info=True;User ID=sa;Password=neyugnhniv1!")]
+        public string VB_BusinessAccount {
+            get {
+                return ((string)(this["VB_BusinessAccount"]));
             }
         }
     }

@@ -19,5 +19,6 @@ namespace VS_Business
         public string Unit { get; set; }
         public Nullable<int> Price { get; set; }
         public string Code { get; set; }
+        public Nullable<int> isDelete { get; set; }
     }
 }

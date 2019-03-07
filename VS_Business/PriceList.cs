@@ -16,5 +16,6 @@ namespace VS_Business
     {
         public int ID { get; set; }
         public Nullable<int> CustomerID { get; set; }
+        public Nullable<int> isDelete { get; set; }
     }
 }

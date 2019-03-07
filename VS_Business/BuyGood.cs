@@ -33,7 +33,7 @@ namespace VS_Business
 			{
 				using (VB_BusinessEntities db = new VB_BusinessEntities())
 				{
-					var listGoods = (from u in db.Goods select u).ToList();
+					var listGoods = (from u in db.Goods where u.isDelete == 0 select u).ToList();
 					//var listCus = (from u in db.Personal_Info where u.Type == 1  select u).ToList();
 					Application xlApp = new Application();
 					Workbook xlWorkBook;
@@ -50,7 +50,7 @@ namespace VS_Business
 						xlWorkSheet.Cells[i + 2, 2] = listGoods[i].Name;
 						xlWorkSheet.Cells[i + 2, 3] = 0;
 					}
-					xlWorkBook.SaveAs("D:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
+					xlWorkBook.SaveAs("C:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 						 misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
 					xlWorkBook.Close(true, misValue, misValue);
@@ -76,7 +76,7 @@ namespace VS_Business
 			using (OpenFileDialog openFileDialog = new OpenFileDialog())
 			{
 				BuyOrder cusBO = getCurrentCustomerBuyOrder(true);
-				openFileDialog.InitialDirectory = "d:\\";
+				openFileDialog.InitialDirectory = "C:\\";
 				openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 				openFileDialog.FilterIndex = 2;
 				openFileDialog.RestoreDirectory = true;
@@ -150,91 +150,11 @@ namespace VS_Business
 		{
 			try
 			{
-				BuyOrder todayBO = getCurrentCustomerBuyOrder();
+				
 				using (VB_BusinessEntities db = new VB_BusinessEntities())
 				{
-					var listGoods = (from u in db.Goods select u).ToList();
-					var listBuyOrderDetail = (from bod in db.BuyOrderDetails
-																		join good in db.Goods on bod.GoodCode equals good.Code
-																		join bo in db.BuyOrders on bod.OrderID equals bo.ID
-																		join person in db.PersonalInfoes on bo.CustomerID equals person.ID
-																		where bod.OrderID == todayBO.ID
-																		select new { bod, good, person, bo }).ToList();
-					object[,] exportData = new object[listGoods.Count + 1, listBuyOrderDetail.Count];
-					exportData[0, 0] = "Mã Sản Phẩm";
-					exportData[0, 1] = "Tên";
-					exportData[0, 2] = "Giá";
-					exportData[0, 3] = "Số lượng";
-					exportData[0, 4] = "Tổng";
-					var listGood = new List<dynamic>();
-					var listCus = new List<dynamic>();
-					var cusGoodMapping = new List<dynamic>();
-					var listBOD = new List<dynamic>();
-					for (int i = 0; i < listBuyOrderDetail.Count; i++)
-					{
-						dynamic g = new System.Dynamic.ExpandoObject();
-						g.quantity = listBuyOrderDetail[i].bod.Quantity;
-						g.code = listBuyOrderDetail[i].bod.GoodCode;
-						g.name = listBuyOrderDetail[i].good.Name;
-						g.price = listBuyOrderDetail[i].good.Price;
-						if (listGood.Count > 0)
-						{
-							int findGood = listGood.FindIndex(good => good.code == listBuyOrderDetail[i].bod.GoodCode);
-							if (findGood > -1)
-							{
-								listGood[findGood].quantity += listBuyOrderDetail[i].bod.Quantity;
-							}
-							else
-							{
-								listGood.Add(g);
-							}
-						}
-						else
-						{
-							listGood.Add(g);
-						}
-
-						dynamic c = new System.Dynamic.ExpandoObject();
-						c.id = listBuyOrderDetail[i].bo.CustomerID;
-						c.name = listBuyOrderDetail[i].person.Name;
-						c.goodcode = listBuyOrderDetail[i].bod.GoodCode;
-						c.quantity = listBuyOrderDetail[i].bod.Quantity;
-						if (listCus.Count != -1)
-						{
-							int findCus = listCus.FindIndex(cus => cus.id == listBuyOrderDetail[i].bo.CustomerID);
-							if (findCus == -1)
-							{
-								listCus.Add(c);
-							}
-						}
-						else
-						{
-							listCus.Add(c);
-						}
-
-						dynamic b = new System.Dynamic.ExpandoObject();
-						b.goodcode = listBuyOrderDetail[i].bod.GoodCode;
-						b.quantity = listBuyOrderDetail[i].bod.Quantity;
-						b.customerid = listBuyOrderDetail[i].bo.CustomerID;
-						if (listBOD.Count > 0)
-						{
-							int findBOD = listBOD.FindIndex(bod => bod.goodcode == listBuyOrderDetail[i].bod.GoodCode && bod.customerid == listBuyOrderDetail[i].bo.CustomerID);
-							if (findBOD == -1)
-							{
-								listBOD.Add(b);
-							}
-							else
-							{
-								listBOD[findBOD].quantity += listBuyOrderDetail[i].bod.Quantity;
-							}
-						}
-						else
-						{
-							listBOD.Add(b);
-						}
-					}
-
-
+					DateTime today = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
+					List<BuyOrder> listTodayBO = (from bo in db.BuyOrders where bo.Day == today select bo).ToList(); ;
 					Application xlApp = new Application();
 					Workbook xlWorkBook;
 					Worksheet xlWorkSheet;
@@ -243,15 +163,91 @@ namespace VS_Business
 					xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
 					xlWorkSheet.Cells[1, 1] = "Mã Sản Phẩm";
 					xlWorkSheet.Cells[1, 2] = "Tên";
-					xlWorkSheet.Cells[1, 3] = "Giá";
-					xlWorkSheet.Cells[1, 4] = "Số lượng";
-					xlWorkSheet.Cells[1, 5] = "Tổng";
+					xlWorkSheet.Cells[1, 3] = "Số lượng";
+					var listGood = new List<dynamic>();
+					var listCus = new List<dynamic>();
+					var cusGoodMapping = new List<dynamic>();
+					var listBOD = new List<dynamic>();
+					foreach (BuyOrder todayBO in listTodayBO)
+					{
+						var listGoods = (from u in db.Goods select u).ToList();
+						var listBuyOrderDetail = (from bod in db.BuyOrderDetails
+																			join good in db.Goods on bod.GoodCode equals good.Code
+																			join bo in db.BuyOrders on bod.OrderID equals bo.ID
+																			join person in db.PersonalInfoes on bo.CustomerID equals person.ID
+																			where bod.OrderID == todayBO.ID
+																			select new { bod, good, person, bo }).ToList();
+						
+						for (int i = 0; i < listBuyOrderDetail.Count; i++)
+						{
+							dynamic g = new System.Dynamic.ExpandoObject();
+							g.quantity = listBuyOrderDetail[i].bod.Quantity;
+							g.code = listBuyOrderDetail[i].bod.GoodCode;
+							g.name = listBuyOrderDetail[i].good.Name;
+							g.price = listBuyOrderDetail[i].good.Price;
+							if (listGood.Count > 0)
+							{
+								int findGood = listGood.FindIndex(good => good.code == listBuyOrderDetail[i].bod.GoodCode);
+								if (findGood > -1)
+								{
+									listGood[findGood].quantity += listBuyOrderDetail[i].bod.Quantity;
+								}
+								else
+								{
+									listGood.Add(g);
+								}
+							}
+							else
+							{
+								listGood.Add(g);
+							}
+
+							dynamic c = new System.Dynamic.ExpandoObject();
+							c.id = listBuyOrderDetail[i].bo.CustomerID;
+							c.name = listBuyOrderDetail[i].person.Name;
+							c.goodcode = listBuyOrderDetail[i].bod.GoodCode;
+							c.quantity = listBuyOrderDetail[i].bod.Quantity;
+							if (listCus.Count != -1)
+							{
+								int findCus = listCus.FindIndex(cus => cus.id == listBuyOrderDetail[i].bo.CustomerID);
+								if (findCus == -1)
+								{
+									listCus.Add(c);
+								}
+							}
+							else
+							{
+								listCus.Add(c);
+							}
+
+							dynamic b = new System.Dynamic.ExpandoObject();
+							b.goodcode = listBuyOrderDetail[i].bod.GoodCode;
+							b.quantity = listBuyOrderDetail[i].bod.Quantity;
+							b.customerid = listBuyOrderDetail[i].bo.CustomerID;
+							if (listBOD.Count > 0)
+							{
+								int findBOD = listBOD.FindIndex(bod => bod.goodcode == listBuyOrderDetail[i].bod.GoodCode && bod.customerid == listBuyOrderDetail[i].bo.CustomerID);
+								if (findBOD == -1)
+								{
+									listBOD.Add(b);
+								}
+								else
+								{
+									listBOD[findBOD].quantity += listBuyOrderDetail[i].bod.Quantity;
+								}
+							}
+							else
+							{
+								listBOD.Add(b);
+							}
+						}
+					}
 					for (int i = 0; i < listCus.Count; i++)
 					{
-						xlWorkSheet.Cells[1, i + 6] = listCus[i].name;
+						xlWorkSheet.Cells[1, i + 4] = listCus[i].name;
 						dynamic cgm = new System.Dynamic.ExpandoObject();
 						cgm.id = listCus[i].id;
-						cgm.index = i + 6;
+						cgm.index = i + 4;
 						cusGoodMapping.Add(cgm);
 					}
 
@@ -259,9 +255,7 @@ namespace VS_Business
 					{
 						xlWorkSheet.Cells[i + 2, 1] = listGood[i].code;
 						xlWorkSheet.Cells[i + 2, 2] = listGood[i].name;
-						xlWorkSheet.Cells[i + 2, 3] = listGood[i].price;
-						xlWorkSheet.Cells[i + 2, 4] = listGood[i].quantity;
-						xlWorkSheet.Cells[i + 2, 5] = listGood[i].quantity * listGood[i].price;
+						xlWorkSheet.Cells[i + 2, 3] = listGood[i].quantity;
 						foreach (dynamic bod in listBOD)
 						{
 							if (bod.goodcode == listGood[i].code)
@@ -276,11 +270,10 @@ namespace VS_Business
 							}
 						}
 					}
-					xlWorkBook.SaveAs("D:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
-						 misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+					xlWorkBook.SaveAs("C:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
+							 misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 					xlWorkBook.Close(true, misValue, misValue);
 					xlApp.Quit();
-
 					Marshal.ReleaseComObject(xlWorkSheet);
 					Marshal.ReleaseComObject(xlWorkBook);
 					Marshal.ReleaseComObject(xlApp);

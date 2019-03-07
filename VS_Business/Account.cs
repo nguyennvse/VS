@@ -18,5 +18,6 @@ namespace VS_Business
         public string password { get; set; }
         public string Role { get; set; }
         public int ID { get; set; }
+        public Nullable<int> isDelete { get; set; }
     }
 }
