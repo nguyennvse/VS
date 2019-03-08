@@ -388,6 +388,7 @@ namespace VS_Business
 
 		private void setting()
 		{
+			dgvPriceListDetail.RowTemplate.Height = 30;
 			DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
 			column1.Name = "namecl";
 			column1.HeaderText = "Tên sản phẩm";
@@ -400,9 +401,11 @@ namespace VS_Business
 			column2.DataPropertyName = "price";
 			dgvPriceListDetail.Columns.Add(column2);
 
-			DataGridViewButtonColumn column3 = new DataGridViewButtonColumn();
-			column3.Name = "delete";
+			DataGridViewImageColumn column3 = new DataGridViewImageColumn();
+			column3.Name = "Delete";
 			column3.HeaderText = "Xóa";
+			column3.Width = 40;
+			column3.Image = Properties.Resources.icons8_trash_can_32;
 			dgvPriceListDetail.Columns.Add(column3);
 
 			this.dgvPriceListDetail.Columns["ID"].Visible = false;

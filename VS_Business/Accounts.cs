@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,10 +23,6 @@ namespace VS_Business
 
 		private void Employee_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'vB_BusinessDataSet.Account' table. You can move, or remove it, as needed.
-			
-			// TODO: This line of code loads data into the 'vB_BusinessDataSet.Account' table. You can move, or remove it, as needed.
-
 			RoleModel role1 = new RoleModel("Giám Đốc", 0);
 			RoleModel role2 = new RoleModel("Quản lý", 1);
 			RoleModel role3 = new RoleModel("Nhân Viên", 2);
@@ -34,7 +32,6 @@ namespace VS_Business
 			cbRole.SelectedIndex = 2;
 			cbRole.DisplayMember = "name";
 			cbRole.ValueMember = "value";
-
 			loadDGVData();
 		}
 
@@ -48,7 +45,7 @@ namespace VS_Business
 		private void button2_Click(object sender, EventArgs e)
 		{
 			addEmployee(txtUsername.Text, txtPassword.Text, cbRole.Text);
-			searchEmp("");
+			loadDGVData();
 			clearForm();
 		}
 
@@ -101,6 +98,7 @@ namespace VS_Business
 					acc.username = username;
 					acc.password = password;
 					acc.Role = role;
+					acc.isDelete = 0;
 					db.Accounts.Add(acc);
 					db.SaveChanges();
 				}
@@ -155,10 +153,10 @@ namespace VS_Business
 			try
 			{
 				DataGridViewRow row = dgvEmployee.Rows[e.RowIndex];
-				currentAcc.username = row.Cells[0].Value.ToString();
-				currentAcc.password = row.Cells[1].Value.ToString();
-				currentAcc.role = row.Cells[2].Value.ToString();
-				currentAcc.id = int.Parse(row.Cells[3].Value.ToString());
+				currentAcc.username = row.Cells["usernamecl"].Value.ToString();
+				currentAcc.password = row.Cells["passwordcl"].Value.ToString();
+				currentAcc.role = row.Cells["rolecl"].Value.ToString();
+				currentAcc.id = int.Parse(row.Cells["ID"].Value.ToString());
 				DataGridViewColumn col = dgvEmployee.Columns[e.ColumnIndex];
 				if (col.Name.Equals("Delete"))
 				{
@@ -218,16 +216,24 @@ namespace VS_Business
 
 		private void setting()
 		{
+			this.dgvEmployee.Columns["ID"].Visible = false;
+			this.dgvEmployee.Columns["username"].Visible = false;
+			this.dgvEmployee.Columns["password"].Visible = false;
+			this.dgvEmployee.Columns["Role"].Visible = false;
+			this.dgvEmployee.Columns["isDelete"].Visible = false;
+			dgvEmployee.RowTemplate.Height = 30;
 			DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
 			column1.Name = "usernamecl";
 			column1.HeaderText = "Tên đăng nhập";
 			column1.DataPropertyName = "username";
+			column1.Width = 125;
 			dgvEmployee.Columns.Add(column1);
 
 			DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
 			column2.Name = "passwordcl";
 			column2.HeaderText = "Mật Khẩu";
 			column2.DataPropertyName = "password";
+			column2.Width = 125;
 			dgvEmployee.Columns.Add(column2);
 
 			DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
@@ -236,16 +242,20 @@ namespace VS_Business
 			column3.DataPropertyName = "role";
 			dgvEmployee.Columns.Add(column3);
 
-			DataGridViewButtonColumn column4 = new DataGridViewButtonColumn();
+			DataGridViewImageColumn column4 = new DataGridViewImageColumn();
 			column4.Name = "Delete";
 			column4.HeaderText = "Xóa";
+			column4.Width = 40;
+			column4.Image = Properties.Resources.icons8_trash_can_32;
 			dgvEmployee.Columns.Add(column4);
+	
+		}
 
-			this.dgvEmployee.Columns["ID"].Visible = false;
-			this.dgvEmployee.Columns["username"].Visible = false;
-			this.dgvEmployee.Columns["password"].Visible = false;
-			this.dgvEmployee.Columns["Role"].Visible = false;
-			this.dgvEmployee.Columns["isDelete"].Visible = false;
+		private void button3_Click_1(object sender, EventArgs e)
+		{
+			addEmployee(txtUsername.Text, txtPassword.Text, cbRole.Text);
+			searchEmp("");
+			clearForm();
 		}
 	}
 }

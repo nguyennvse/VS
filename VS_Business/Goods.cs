@@ -158,8 +158,7 @@ namespace VS_Business
 
 		private void button3_Click_1(object sender, EventArgs e)
 		{
-			addGood(txtName.Text, txtUnit.Text, int.Parse(txtPrice.Text), txtGoodCode.Text);
-			searchGood("");
+			
 		}
 
 		private void dgvGoods_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -196,6 +195,7 @@ namespace VS_Business
 
 		private void setting()
 		{
+			dgvGoods.RowTemplate.Height = 30;
 			DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
 			column5.Name = "codecl";
 			column5.HeaderText = "Mã";
@@ -220,9 +220,11 @@ namespace VS_Business
 			column3.DataPropertyName = "price";
 			dgvGoods.Columns.Add(column3);
 
-			DataGridViewButtonColumn column4 = new DataGridViewButtonColumn();
+			DataGridViewImageColumn column4 = new DataGridViewImageColumn();
 			column4.Name = "Delete";
 			column4.HeaderText = "Xóa";
+			column4.Width = 40;
+			column4.Image = Properties.Resources.icons8_trash_can_32;
 			dgvGoods.Columns.Add(column4);
 
 			DataGridViewButtonColumn column6 = new DataGridViewButtonColumn();
@@ -237,6 +239,12 @@ namespace VS_Business
 			this.dgvGoods.Columns["unit"].Visible = false;
 			this.dgvGoods.Columns["price"].Visible = false;
 			this.dgvGoods.Columns["isDelete"].Visible = false;
+		}
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			addGood(txtName.Text, txtUnit.Text, int.Parse(txtPrice.Text), txtGoodCode.Text);
+			searchGood("");
 		}
 	}
 }

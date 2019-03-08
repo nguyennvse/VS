@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyGood));
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.dgvBOD = new System.Windows.Forms.DataGridView();
@@ -40,7 +41,6 @@
 			this.cbbCus = new System.Windows.Forms.ComboBox();
 			this.cbbGood = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.button6 = new System.Windows.Forms.Button();
 			this.dtpBO = new System.Windows.Forms.DateTimePicker();
 			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBOD)).BeginInit();
@@ -49,9 +49,11 @@
 			// button1
 			// 
 			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(542, 279);
+			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(440, 223);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(157, 33);
+			this.button1.Size = new System.Drawing.Size(282, 35);
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Xuất file excel mẫu";
 			this.button1.UseVisualStyleBackColor = true;
@@ -60,9 +62,11 @@
 			// button2
 			// 
 			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(705, 279);
+			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(440, 264);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(148, 33);
+			this.button2.Size = new System.Drawing.Size(281, 35);
 			this.button2.TabIndex = 2;
 			this.button2.Text = "Nhập đơn hàng";
 			this.button2.UseVisualStyleBackColor = true;
@@ -76,7 +80,7 @@
 			this.dgvBOD.Location = new System.Drawing.Point(12, 12);
 			this.dgvBOD.Name = "dgvBOD";
 			this.dgvBOD.ReadOnly = true;
-			this.dgvBOD.Size = new System.Drawing.Size(492, 347);
+			this.dgvBOD.Size = new System.Drawing.Size(401, 347);
 			this.dgvBOD.TabIndex = 3;
 			this.dgvBOD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBOD_CellClick);
 			// 
@@ -84,7 +88,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(542, 134);
+			this.label4.Location = new System.Drawing.Point(438, 131);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(69, 17);
 			this.label4.TabIndex = 9;
@@ -92,16 +96,18 @@
 			// 
 			// txtQuantity
 			// 
-			this.txtQuantity.Location = new System.Drawing.Point(674, 134);
+			this.txtQuantity.Location = new System.Drawing.Point(570, 131);
 			this.txtQuantity.Name = "txtQuantity";
 			this.txtQuantity.Size = new System.Drawing.Size(152, 20);
 			this.txtQuantity.TabIndex = 10;
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(648, 172);
+			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button3.Location = new System.Drawing.Point(440, 172);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(92, 33);
+			this.button3.Size = new System.Drawing.Size(125, 35);
 			this.button3.TabIndex = 11;
 			this.button3.Text = "Thêm";
 			this.button3.UseVisualStyleBackColor = true;
@@ -109,9 +115,11 @@
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(763, 172);
+			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button4.Location = new System.Drawing.Point(596, 172);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(90, 33);
+			this.button4.Size = new System.Drawing.Size(125, 35);
 			this.button4.TabIndex = 12;
 			this.button4.Text = "Sửa";
 			this.button4.UseVisualStyleBackColor = true;
@@ -120,9 +128,11 @@
 			// button5
 			// 
 			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(577, 327);
+			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+			this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button5.Location = new System.Drawing.Point(440, 305);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(238, 39);
+			this.button5.Size = new System.Drawing.Size(281, 35);
 			this.button5.TabIndex = 13;
 			this.button5.Text = "Xuất đơn đi chợ";
 			this.button5.UseVisualStyleBackColor = true;
@@ -132,7 +142,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(542, 67);
+			this.label5.Location = new System.Drawing.Point(438, 64);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(84, 17);
 			this.label5.TabIndex = 14;
@@ -141,7 +151,7 @@
 			// cbbCus
 			// 
 			this.cbbCus.FormattingEnabled = true;
-			this.cbbCus.Location = new System.Drawing.Point(675, 66);
+			this.cbbCus.Location = new System.Drawing.Point(571, 63);
 			this.cbbCus.Name = "cbbCus";
 			this.cbbCus.Size = new System.Drawing.Size(151, 21);
 			this.cbbCus.TabIndex = 15;
@@ -150,7 +160,7 @@
 			// cbbGood
 			// 
 			this.cbbGood.FormattingEnabled = true;
-			this.cbbGood.Location = new System.Drawing.Point(674, 100);
+			this.cbbGood.Location = new System.Drawing.Point(570, 97);
 			this.cbbGood.Name = "cbbGood";
 			this.cbbGood.Size = new System.Drawing.Size(152, 21);
 			this.cbbGood.TabIndex = 16;
@@ -159,25 +169,15 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(542, 101);
+			this.label2.Location = new System.Drawing.Point(438, 98);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(73, 17);
 			this.label2.TabIndex = 17;
 			this.label2.Text = "Sản Phẩm";
 			// 
-			// button6
-			// 
-			this.button6.Location = new System.Drawing.Point(536, 172);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(92, 33);
-			this.button6.TabIndex = 18;
-			this.button6.Text = "Trở về";
-			this.button6.UseVisualStyleBackColor = true;
-			this.button6.Click += new System.EventHandler(this.button6_Click);
-			// 
 			// dtpBO
 			// 
-			this.dtpBO.Location = new System.Drawing.Point(674, 30);
+			this.dtpBO.Location = new System.Drawing.Point(570, 27);
 			this.dtpBO.Name = "dtpBO";
 			this.dtpBO.Size = new System.Drawing.Size(151, 20);
 			this.dtpBO.TabIndex = 8;
@@ -187,7 +187,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(541, 33);
+			this.label1.Location = new System.Drawing.Point(437, 30);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(105, 17);
 			this.label1.TabIndex = 1;
@@ -197,8 +197,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(878, 384);
-			this.Controls.Add(this.button6);
+			this.ClientSize = new System.Drawing.Size(753, 377);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.cbbGood);
 			this.Controls.Add(this.cbbCus);
@@ -235,7 +234,6 @@
 		private System.Windows.Forms.ComboBox cbbCus;
 		private System.Windows.Forms.ComboBox cbbGood;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.DateTimePicker dtpBO;
 		private System.Windows.Forms.Label label1;
 	}

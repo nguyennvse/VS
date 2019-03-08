@@ -50,7 +50,7 @@ namespace VS_Business
 						xlWorkSheet.Cells[i + 2, 2] = listGoods[i].Name;
 						xlWorkSheet.Cells[i + 2, 3] = 0;
 					}
-					xlWorkBook.SaveAs("C:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
+					xlWorkBook.SaveAs("D:\\don_hang_mau.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 						 misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
 					xlWorkBook.Close(true, misValue, misValue);
@@ -76,7 +76,7 @@ namespace VS_Business
 			using (OpenFileDialog openFileDialog = new OpenFileDialog())
 			{
 				BuyOrder cusBO = getCurrentCustomerBuyOrder(true);
-				openFileDialog.InitialDirectory = "C:\\";
+				openFileDialog.InitialDirectory = "D:\\";
 				openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 				openFileDialog.FilterIndex = 2;
 				openFileDialog.RestoreDirectory = true;
@@ -170,7 +170,6 @@ namespace VS_Business
 					var listBOD = new List<dynamic>();
 					foreach (BuyOrder todayBO in listTodayBO)
 					{
-						var listGoods = (from u in db.Goods select u).ToList();
 						var listBuyOrderDetail = (from bod in db.BuyOrderDetails
 																			join good in db.Goods on bod.GoodCode equals good.Code
 																			join bo in db.BuyOrders on bod.OrderID equals bo.ID
@@ -270,7 +269,7 @@ namespace VS_Business
 							}
 						}
 					}
-					xlWorkBook.SaveAs("C:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
+					xlWorkBook.SaveAs("D:\\don_hang.xlsx", XlFileFormat.xlOpenXMLWorkbook, misValue,
 							 misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 					xlWorkBook.Close(true, misValue, misValue);
 					xlApp.Quit();
@@ -396,6 +395,7 @@ namespace VS_Business
 
 		private void setting()
 		{
+			dgvBOD.RowTemplate.Height = 30;
 			DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
 			column1.Name = "namecl";
 			column1.HeaderText = "Tên sản phẩm";
@@ -408,9 +408,11 @@ namespace VS_Business
 			column2.DataPropertyName = "quantity";
 			dgvBOD.Columns.Add(column2);
 
-			DataGridViewButtonColumn column3 = new DataGridViewButtonColumn();
-			column3.Name = "delete";
+			DataGridViewImageColumn column3 = new DataGridViewImageColumn();
+			column3.Name = "Delete";
 			column3.HeaderText = "Xóa";
+			column3.Width = 40;
+			column3.Image = Properties.Resources.icons8_trash_can_32;
 			dgvBOD.Columns.Add(column3);
 
 			this.dgvBOD.Columns["id"].Visible = false;

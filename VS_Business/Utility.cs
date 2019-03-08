@@ -9,6 +9,7 @@ namespace VS_Business
 {
 	class Utility
 	{
+
 		public static void loadCustomerCBB(ComboBox cbb)
 		{
 			cbb.DisplayMember = "Text";

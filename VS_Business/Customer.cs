@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -18,7 +19,11 @@ namespace VS_Business
 		private void Customer_Load(object sender, EventArgs e)
 		{
 			loadDGVdata();
-
+			cbbType.Items.Add(new {Name = "Khách Hàng",Value="1" });
+			cbbType.Items.Add(new { Name = "Nhà Phân Phối", Value = "0" });
+			cbbType.DisplayMember = "Name";
+			cbbType.ValueMember = "Value";
+			cbbType.SelectedIndex = 0;
 		}
 
 		private void editCus(int id, string name, string company, int mst, int phone, string email, int fax)
@@ -34,6 +39,7 @@ namespace VS_Business
 					cus.Phone = phone;
 					cus.Email = email;
 					cus.Fax = fax;
+					cus.Type = int.Parse(Utility.getCbbValue(cbbType));
 					db.SaveChanges();
 				}
 			}
@@ -67,7 +73,7 @@ namespace VS_Business
 					cus.Phone = phone;
 					cus.Email = email;
 					cus.Fax = fax;
-					cus.Type = 0;
+					cus.Type = int.Parse(Utility.getCbbValue(cbbType));
 					db.PersonalInfoes.Add(cus);
 					db.SaveChanges();
 				}
@@ -166,8 +172,29 @@ namespace VS_Business
 					dgvCustomer.Columns.Clear();
 					if (listPeople.Count > 0)
 					{
-						var list = new BindingList<PersonalInfo>(listPeople);
-						var source = new BindingSource(list, null);
+						List<CustomerListModel> listmodel = new List<CustomerListModel>();
+						foreach (var person in listPeople)
+						{
+							CustomerListModel model = new CustomerListModel();
+							model.company = person.Company;
+							model.email = person.Email;
+							model.fax = (int)person.Fax;
+							model.id = person.ID;
+							model.name = person.Name;
+							model.phone = (int)person.Phone;
+							model.tax = (int)person.MST;
+							model.type = (int)person.Type;
+							if (model.type == 1)
+							{
+								model.typename = "Khách hàng";
+							}
+							else
+							{
+								model.typename = "Nhà Phân Phối";
+							}
+							listmodel.Add(model);
+						}
+						var list = new BindingList<CustomerListModel>(listmodel);
 						dgvCustomer.DataSource = list;
 						setting();
 					}
@@ -185,6 +212,7 @@ namespace VS_Business
 
 		private void setting()
 		{
+			dgvCustomer.RowTemplate.Height = 30;
 			DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
 			column1.Name = "namecl";
 			column1.HeaderText = "Tên";
@@ -200,7 +228,7 @@ namespace VS_Business
 			DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
 			column3.Name = "mstcl";
 			column3.HeaderText = "Mã Số Thuế";
-			column3.DataPropertyName = "mst";
+			column3.DataPropertyName = "tax";
 			dgvCustomer.Columns.Add(column3);
 
 			DataGridViewTextBoxColumn column4 = new DataGridViewTextBoxColumn();
@@ -221,9 +249,17 @@ namespace VS_Business
 			column8.DataPropertyName = "fax";
 			dgvCustomer.Columns.Add(column8);
 
-			DataGridViewButtonColumn column5 = new DataGridViewButtonColumn();
+			DataGridViewTextBoxColumn column9 = new DataGridViewTextBoxColumn();
+			column9.Name = "typename";
+			column9.HeaderText = "Loại";
+			column9.DataPropertyName = "typename";
+			dgvCustomer.Columns.Add(column9);
+
+			DataGridViewImageColumn column5 = new DataGridViewImageColumn();
 			column5.Name = "Delete";
 			column5.HeaderText = "Xóa";
+			column5.Width = 40;
+			column5.Image = Properties.Resources.icons8_trash_can_32;
 			dgvCustomer.Columns.Add(column5);
 
 			DataGridViewTextBoxColumn column6 = new DataGridViewTextBoxColumn();
