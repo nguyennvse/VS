@@ -10,13 +10,13 @@ namespace VS_Business.Model
     {
         public string Name { get; set; }
         public string Company { get; set; }
-        public int TaxNumber { get; set; }
-        public int Phone { get; set; }
-        public int FaxNumber { get; set; }
+        public string TaxNumber { get; set; }
+        public string Phone { get; set; }
+        public string FaxNumber { get; set; }
         public string Email { get; set; }
         public int id { get; set; }
 
-        public PersonModel(string Name, string Company, int TaxNumber, int Phone, int FaxNumber, string Email, int id)
+        public PersonModel(string Name, string Company, string TaxNumber, string Phone, string FaxNumber, string Email, int id)
         {
             this.Name = Name;
             this.Company = Company;

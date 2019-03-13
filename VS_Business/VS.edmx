@@ -33,6 +33,7 @@
           <Property Name="GoodCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Quantity" Type="int" />
           <Property Name="OrderID" Type="int" />
+          <Property Name="isDelete" Type="int" />
         </EntityType>
         <EntityType Name="Goods">
           <Key>
@@ -63,9 +64,9 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Company" Type="nvarchar" MaxLength="50" />
-          <Property Name="MST" Type="int" />
-          <Property Name="Phone" Type="int" />
-          <Property Name="Fax" Type="int" />
+          <Property Name="MST" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="int" />
           <Property Name="isDelete" Type="int" />
@@ -131,6 +132,7 @@
           <Property Name="GoodCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="OrderID" Type="Int32" />
+          <Property Name="isDelete" Type="Int32" />
         </EntityType>
         <EntityType Name="Good">
           <Key>
@@ -161,9 +163,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MST" Type="Int32" />
-          <Property Name="Phone" Type="Int32" />
-          <Property Name="Fax" Type="Int32" />
+          <Property Name="MST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" />
           <Property Name="isDelete" Type="Int32" />
@@ -231,6 +233,7 @@
                 <ScalarProperty Name="GoodCode" ColumnName="GoodCode" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

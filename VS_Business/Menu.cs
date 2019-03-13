@@ -20,28 +20,14 @@ namespace VS_Business
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			panelLoadForm.Controls.Clear();
 			Accounts empForm = new Accounts();
-			empForm.TopLevel = false;
-			empForm.AutoScroll = true;
-			empForm.FormBorderStyle = FormBorderStyle.None;
-			setSizeFitForm(empForm);
-			panelLoadForm.Controls.Add(empForm);
-			empForm.Show();
-			//Hide();
+			loadForm(empForm);
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			panelLoadForm.Controls.Clear();
 			Customer cusForm = new Customer();
-			cusForm.TopLevel = false;
-			cusForm.AutoScroll = true;
-			cusForm.FormBorderStyle = FormBorderStyle.None;
-			panelLoadForm.Size = cusForm.Size;
-			panelLoadForm.Controls.Add(cusForm);
-			setSizeFitForm(cusForm);
-			cusForm.Show();
+			loadForm(cusForm);
 		}
 
 		private void autherizeEmp()
@@ -51,26 +37,14 @@ namespace VS_Business
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			panelLoadForm.Controls.Clear();
 			Goods goodForm = new Goods();
-			goodForm.TopLevel = false;
-			goodForm.AutoScroll = true;
-			goodForm.FormBorderStyle = FormBorderStyle.None;
-			panelLoadForm.Controls.Add(goodForm);
-			setSizeFitForm(goodForm);
-			goodForm.Show();
+			loadForm(goodForm);
 		}
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			panelLoadForm.Controls.Clear();
 			BuyGood buyGoodForm = new BuyGood();
-			buyGoodForm.TopLevel = false;
-			buyGoodForm.AutoScroll = true;
-			buyGoodForm.FormBorderStyle = FormBorderStyle.None;
-			panelLoadForm.Controls.Add(buyGoodForm);
-			setSizeFitForm(buyGoodForm);
-			buyGoodForm.Show();
+			loadForm(buyGoodForm);
 		}
 
 		private string numberWithComma(int value)
@@ -81,22 +55,36 @@ namespace VS_Business
 
 		private void button5_Click(object sender, EventArgs e)
 		{
-			panelLoadForm.Controls.Clear();
 			PriceLists priceListForm = new PriceLists();
-			priceListForm.TopLevel = false;
-			priceListForm.AutoScroll = true;
-			priceListForm.FormBorderStyle = FormBorderStyle.None;
-			panelLoadForm.Size = priceListForm.Size;
-			panelLoadForm.Controls.Add(priceListForm);
-			setSizeFitForm(priceListForm);
-			priceListForm.Show();
+			loadForm(priceListForm);
 		}
 
 		private void setSizeFitForm(Control form)
 		{
-			this.panelLoadForm.Size = form.Size;
-			this.Width = 330 + form.Width;
-			this.Height = this.panelLoadForm.Height + 70;
+			if (this.WindowState != FormWindowState.Maximized)
+			{
+				this.Width = 330 + form.Width;
+				this.Height = form.Height + 70;
+				this.panelLoadForm.Width =  form.Width- 10;
+				this.panelLoadForm.Height = form.Height - 10;
+			}
+			else
+			{
+				form.Width = this.Width - 330;
+				form.Height = this.Height - 70;
+			}
+		}
+
+		private void loadForm(Form form)
+		{
+			panelLoadForm.Controls.Clear();
+			setSizeFitForm(form);
+			form.TopLevel = false;
+			form.AutoScroll = true;
+			form.FormBorderStyle = FormBorderStyle.None;
+			form.Anchor = (AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left);
+			panelLoadForm.Controls.Add(form);
+			form.Show();
 		}
 	}
 }

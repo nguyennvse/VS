@@ -11,10 +11,10 @@ namespace VS_Business.Model
 		public string typename { get; set; }
 		public string name { get; set; }
 		public string company { get; set; }
-		public int tax { get; set; }
-		public int phone { get; set; }
+		public string tax { get; set; }
+		public string phone { get; set; }
 		public string email { get; set; }
-		public int fax { get; set; }
+		public string fax { get; set; }
 		public int type { get; set; }
 		public int id { get; set; }
 		public CustomerListModel()

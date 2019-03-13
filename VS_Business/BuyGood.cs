@@ -97,10 +97,10 @@ namespace VS_Business
 						for (int i = 2; i <= range.Rows.Count - 1; i++)
 						{
 							string code = (string)(range.Cells[i, 1] as Range).Value;
-							var quantity = (range.Cells[i, 3]).Value;
+							int quantity = (int)(range.Cells[i, 3]).Value;
 							if (quantity > 0)
 							{
-								createBuyOrderDetail(code, 1, cusBO.ID);
+								createBuyOrderDetail(code, quantity, cusBO.ID);
 							}
 							
 						}
@@ -135,6 +135,7 @@ namespace VS_Business
 						buyOrderDetail.GoodCode = goodCode;
 						buyOrderDetail.Quantity = quantity;
 						buyOrderDetail.OrderID = orderID;
+						buyOrderDetail.isDelete = 0;
 						db.BuyOrderDetails.Add(buyOrderDetail);
 					}
 					db.SaveChanges();
@@ -306,7 +307,7 @@ namespace VS_Business
 												 where bo.CustomerID == cusID
 												 where bo.Day == bodDay
 												 select new { bdo, g }).ToList();
-					if (listBDO != null)
+					if (listBDO.Count > 0)
 					{
 						List<BDOListModel> result = new List<BDOListModel>();
 						dgvBOD.Columns.Clear();
@@ -354,11 +355,13 @@ namespace VS_Business
 					{
 						return findbo;
 					}
-					else if (needCreateNew == true)
+
+					if (findbo == null && needCreateNew == true)
 					{
 						BuyOrder newBO = new BuyOrder();
-						newBO.Day = DateTime.Now;
+						newBO.Day = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 						newBO.CustomerID = cusID;
+						newBO.isDelete = 0;
 						BuyOrder newBOa = db.BuyOrders.Add(newBO);
 						db.SaveChanges();
 						return newBO;
@@ -377,6 +380,10 @@ namespace VS_Business
 		{
 			try
 			{
+				if(currentBO == null)
+				{
+					currentBO = getCurrentCustomerBuyOrder(true);
+				}
 				createBuyOrderDetail(Utility.getCbbValue(cbbGood), int.Parse(txtQuantity.Text), currentBO.ID);
 				loadDGVData();
 			}

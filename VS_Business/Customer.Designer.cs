@@ -60,6 +60,9 @@
 			// 
 			this.dgvCustomer.AllowUserToAddRows = false;
 			this.dgvCustomer.AllowUserToDeleteRows = false;
+			this.dgvCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvCustomer.AutoGenerateColumns = false;
 			this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvCustomer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -68,7 +71,7 @@
 			this.dgvCustomer.Location = new System.Drawing.Point(12, 269);
 			this.dgvCustomer.Name = "dgvCustomer";
 			this.dgvCustomer.ReadOnly = true;
-			this.dgvCustomer.Size = new System.Drawing.Size(741, 391);
+			this.dgvCustomer.Size = new System.Drawing.Size(757, 177);
 			this.dgvCustomer.TabIndex = 0;
 			this.dgvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellClick);
 			// 
@@ -78,9 +81,11 @@
 			// 
 			// txtSearch
 			// 
+			this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtSearch.Location = new System.Drawing.Point(195, 240);
 			this.txtSearch.Name = "txtSearch";
-			this.txtSearch.Size = new System.Drawing.Size(557, 20);
+			this.txtSearch.Size = new System.Drawing.Size(573, 20);
 			this.txtSearch.TabIndex = 1;
 			// 
 			// button1
@@ -119,7 +124,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(376, 33);
+			this.label3.Location = new System.Drawing.Point(392, 33);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(78, 17);
 			this.label3.TabIndex = 5;
@@ -129,7 +134,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(376, 69);
+			this.label4.Location = new System.Drawing.Point(392, 69);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(91, 17);
 			this.label4.TabIndex = 6;
@@ -172,14 +177,14 @@
 			// 
 			// txtTax
 			// 
-			this.txtTax.Location = new System.Drawing.Point(483, 30);
+			this.txtTax.Location = new System.Drawing.Point(499, 30);
 			this.txtTax.Name = "txtTax";
 			this.txtTax.Size = new System.Drawing.Size(246, 20);
 			this.txtTax.TabIndex = 11;
 			// 
 			// txtPhone
 			// 
-			this.txtPhone.Location = new System.Drawing.Point(483, 69);
+			this.txtPhone.Location = new System.Drawing.Point(499, 69);
 			this.txtPhone.Name = "txtPhone";
 			this.txtPhone.Size = new System.Drawing.Size(246, 20);
 			this.txtPhone.TabIndex = 12;
@@ -202,7 +207,7 @@
 			// 
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.Location = new System.Drawing.Point(577, 140);
+			this.button3.Location = new System.Drawing.Point(593, 140);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(154, 35);
 			this.button3.TabIndex = 16;
@@ -214,7 +219,7 @@
 			// 
 			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(379, 141);
+			this.button4.Location = new System.Drawing.Point(395, 141);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(154, 35);
 			this.button4.TabIndex = 17;
@@ -226,7 +231,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(376, 108);
+			this.label7.Location = new System.Drawing.Point(392, 108);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(35, 17);
 			this.label7.TabIndex = 18;
@@ -235,13 +240,15 @@
 			// cbbType
 			// 
 			this.cbbType.FormattingEnabled = true;
-			this.cbbType.Location = new System.Drawing.Point(483, 104);
+			this.cbbType.Location = new System.Drawing.Point(499, 104);
 			this.cbbType.Name = "cbbType";
 			this.cbbType.Size = new System.Drawing.Size(246, 21);
 			this.cbbType.TabIndex = 19;
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox1.Controls.Add(this.txtEmail);
 			this.groupBox1.Controls.Add(this.button3);
 			this.groupBox1.Controls.Add(this.cbbType);
@@ -260,7 +267,7 @@
 			this.groupBox1.Controls.Add(this.txtPhone);
 			this.groupBox1.Location = new System.Drawing.Point(11, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(742, 207);
+			this.groupBox1.Size = new System.Drawing.Size(758, 207);
 			this.groupBox1.TabIndex = 21;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thông tin chi tiết";
@@ -269,7 +276,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(764, 672);
+			this.ClientSize = new System.Drawing.Size(780, 458);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.txtSearch);

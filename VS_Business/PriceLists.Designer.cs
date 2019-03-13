@@ -56,10 +56,12 @@
 			// 
 			// cbbCustomer
 			// 
+			this.cbbCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbbCustomer.FormattingEnabled = true;
 			this.cbbCustomer.Location = new System.Drawing.Point(203, 29);
 			this.cbbCustomer.Name = "cbbCustomer";
-			this.cbbCustomer.Size = new System.Drawing.Size(193, 21);
+			this.cbbCustomer.Size = new System.Drawing.Size(245, 21);
 			this.cbbCustomer.TabIndex = 1;
 			this.cbbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbbCustomer_SelectedIndexChanged);
 			// 
@@ -67,6 +69,9 @@
 			// 
 			this.dgvPriceListDetail.AllowUserToAddRows = false;
 			this.dgvPriceListDetail.AllowUserToDeleteRows = false;
+			this.dgvPriceListDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvPriceListDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvPriceListDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvPriceListDetail.Location = new System.Drawing.Point(15, 65);
@@ -78,6 +83,7 @@
 			// 
 			// label2
 			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(486, 65);
@@ -88,6 +94,7 @@
 			// 
 			// label3
 			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(486, 104);
@@ -98,6 +105,7 @@
 			// 
 			// txtPrice
 			// 
+			this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtPrice.Location = new System.Drawing.Point(588, 101);
 			this.txtPrice.Name = "txtPrice";
 			this.txtPrice.Size = new System.Drawing.Size(135, 20);
@@ -105,6 +113,7 @@
 			// 
 			// button2
 			// 
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button2.Location = new System.Drawing.Point(470, 135);
@@ -117,6 +126,7 @@
 			// 
 			// button3
 			// 
+			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button3.Location = new System.Drawing.Point(605, 135);
@@ -129,6 +139,7 @@
 			// 
 			// button4
 			// 
+			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,6 +153,7 @@
 			// 
 			// cbbGood
 			// 
+			this.cbbGood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbbGood.FormattingEnabled = true;
 			this.cbbGood.Location = new System.Drawing.Point(590, 61);
 			this.cbbGood.Name = "cbbGood";
@@ -150,6 +162,7 @@
 			// 
 			// label4
 			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(486, 339);
@@ -160,6 +173,7 @@
 			// 
 			// dtpPrint
 			// 
+			this.dtpPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.dtpPrint.CustomFormat = "dd-mm-yyy";
 			this.dtpPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpPrint.Format = System.Windows.Forms.DateTimePickerFormat.Short;

@@ -17,9 +17,9 @@ namespace VS_Business
         public int ID { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
-        public Nullable<int> MST { get; set; }
-        public Nullable<int> Phone { get; set; }
-        public Nullable<int> Fax { get; set; }
+        public string MST { get; set; }
+        public string Phone { get; set; }
+        public string Fax { get; set; }
         public string Email { get; set; }
         public Nullable<int> Type { get; set; }
         public Nullable<int> isDelete { get; set; }

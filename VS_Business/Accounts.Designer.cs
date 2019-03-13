@@ -46,29 +46,36 @@
 			// 
 			// txtSearch
 			// 
-			this.txtSearch.Location = new System.Drawing.Point(42, 39);
+			this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtSearch.Location = new System.Drawing.Point(12, 17);
 			this.txtSearch.Name = "txtSearch";
-			this.txtSearch.Size = new System.Drawing.Size(282, 20);
+			this.txtSearch.Size = new System.Drawing.Size(377, 20);
 			this.txtSearch.TabIndex = 1;
 			// 
 			// dgvEmployee
 			// 
 			this.dgvEmployee.AllowUserToAddRows = false;
 			this.dgvEmployee.AllowUserToDeleteRows = false;
+			this.dgvEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvEmployee.Location = new System.Drawing.Point(42, 81);
+			this.dgvEmployee.Location = new System.Drawing.Point(12, 59);
 			this.dgvEmployee.Name = "dgvEmployee";
 			this.dgvEmployee.ReadOnly = true;
-			this.dgvEmployee.Size = new System.Drawing.Size(437, 317);
+			this.dgvEmployee.Size = new System.Drawing.Size(523, 354);
 			this.dgvEmployee.TabIndex = 3;
 			this.dgvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployee_CellClick);
 			this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// label1
 			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(517, 94);
+			this.label1.Location = new System.Drawing.Point(572, 75);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(105, 17);
 			this.label1.TabIndex = 4;
@@ -76,9 +83,10 @@
 			// 
 			// label2
 			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(517, 126);
+			this.label2.Location = new System.Drawing.Point(572, 107);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(66, 17);
 			this.label2.TabIndex = 5;
@@ -86,9 +94,10 @@
 			// 
 			// label3
 			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(517, 159);
+			this.label3.Location = new System.Drawing.Point(572, 140);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 17);
 			this.label3.TabIndex = 6;
@@ -96,31 +105,37 @@
 			// 
 			// txtUsername
 			// 
-			this.txtUsername.Location = new System.Drawing.Point(627, 94);
+			this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtUsername.Location = new System.Drawing.Point(682, 75);
 			this.txtUsername.Name = "txtUsername";
 			this.txtUsername.Size = new System.Drawing.Size(160, 20);
 			this.txtUsername.TabIndex = 7;
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(627, 125);
+			this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtPassword.Location = new System.Drawing.Point(682, 106);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.Size = new System.Drawing.Size(160, 20);
 			this.txtPassword.TabIndex = 8;
 			// 
 			// cbRole
 			// 
+			this.cbRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbRole.FormattingEnabled = true;
-			this.cbRole.Location = new System.Drawing.Point(627, 155);
+			this.cbRole.Location = new System.Drawing.Point(682, 136);
 			this.cbRole.Name = "cbRole";
 			this.cbRole.Size = new System.Drawing.Size(160, 21);
 			this.cbRole.TabIndex = 9;
 			// 
 			// button3
 			// 
+			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.Location = new System.Drawing.Point(520, 192);
+			this.button3.Location = new System.Drawing.Point(575, 173);
+			this.button3.MaximumSize = new System.Drawing.Size(125, 35);
+			this.button3.MinimumSize = new System.Drawing.Size(125, 35);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(125, 35);
 			this.button3.TabIndex = 12;
@@ -130,9 +145,10 @@
 			// 
 			// button4
 			// 
+			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(662, 192);
+			this.button4.Location = new System.Drawing.Point(717, 173);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(125, 35);
 			this.button4.TabIndex = 11;
@@ -142,9 +158,10 @@
 			// 
 			// button1
 			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(342, 31);
+			this.button1.Location = new System.Drawing.Point(395, 9);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(137, 35);
 			this.button1.TabIndex = 0;
@@ -156,8 +173,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(827, 432);
+			this.AutoScroll = true;
+			this.ClientSize = new System.Drawing.Size(882, 426);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.cbRole);
@@ -208,6 +225,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-		private System.Windows.Forms.Button button3;
+		public System.Windows.Forms.Button button3;
 	}
 }

@@ -26,7 +26,7 @@ namespace VS_Business
 			cbbType.SelectedIndex = 0;
 		}
 
-		private void editCus(int id, string name, string company, int mst, int phone, string email, int fax)
+		private void editCus(int id, string name, string company, string mst, string phone, string email, string fax)
 		{
 			try
 			{
@@ -60,7 +60,7 @@ namespace VS_Business
 			}
 		}
 
-		private void addCustomer(string name, string company, int mst, int phone, string email, int fax)
+		private void addCustomer(string name, string company, string mst, string phone, string email, string fax)
 		{
 			try
 			{
@@ -120,10 +120,10 @@ namespace VS_Business
 				DataGridViewRow row = dgvCustomer.Rows[e.RowIndex];
 				currentPerson.Name = row.Cells[0].Value.ToString();
 				currentPerson.Company = row.Cells[1].Value.ToString();
-				currentPerson.TaxNumber = int.Parse(row.Cells[2].Value.ToString());
-				currentPerson.Phone = int.Parse(row.Cells[3].Value.ToString());
+				currentPerson.TaxNumber = row.Cells[2].Value.ToString();
+				currentPerson.Phone = row.Cells[3].Value.ToString();
 				currentPerson.Email = row.Cells[4].Value.ToString();
-				currentPerson.FaxNumber = int.Parse(row.Cells[5].Value.ToString());
+				currentPerson.FaxNumber = row.Cells[5].Value.ToString();
 				currentPerson.id = int.Parse(row.Cells[7].Value.ToString());
 				if (dgvCustomer.Columns[e.ColumnIndex].Name.Equals("Delete"))
 				{
@@ -152,13 +152,13 @@ namespace VS_Business
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			editCus(currentPerson.id, txtName.Text, txtCompany.Text, int.Parse(txtFax.Text), int.Parse(txtPhone.Text), currentPerson.Email, currentPerson.FaxNumber);
+			editCus(currentPerson.id, txtName.Text, txtCompany.Text, txtFax.Text, txtPhone.Text, currentPerson.Email, currentPerson.FaxNumber);
 			searchCus("");
 		}
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			addCustomer(txtName.Text, txtCompany.Text, int.Parse(txtFax.Text), int.Parse(txtPhone.Text), txtEmail.Text, int.Parse(txtFax.Text));
+			addCustomer(txtName.Text, txtCompany.Text, txtFax.Text,txtPhone.Text, txtEmail.Text, txtFax.Text);
 			searchCus("");
 		}
 
@@ -178,11 +178,11 @@ namespace VS_Business
 							CustomerListModel model = new CustomerListModel();
 							model.company = person.Company;
 							model.email = person.Email;
-							model.fax = (int)person.Fax;
+							model.fax = person.Fax;
 							model.id = person.ID;
 							model.name = person.Name;
-							model.phone = (int)person.Phone;
-							model.tax = (int)person.MST;
+							model.phone = person.Phone;
+							model.tax = person.MST;
 							model.type = (int)person.Type;
 							if (model.type == 1)
 							{

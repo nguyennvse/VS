@@ -104,10 +104,15 @@
 			// 
 			// panelLoadForm
 			// 
+			this.panelLoadForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelLoadForm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.panelLoadForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelLoadForm.Location = new System.Drawing.Point(295, 12);
+			this.panelLoadForm.Location = new System.Drawing.Point(314, 24);
+			this.panelLoadForm.MinimumSize = new System.Drawing.Size(400, 420);
 			this.panelLoadForm.Name = "panelLoadForm";
-			this.panelLoadForm.Size = new System.Drawing.Size(443, 520);
+			this.panelLoadForm.Size = new System.Drawing.Size(400, 420);
 			this.panelLoadForm.TabIndex = 5;
 			// 
 			// Menu
@@ -115,7 +120,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(752, 540);
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.ClientSize = new System.Drawing.Size(716, 457);
 			this.Controls.Add(this.panelLoadForm);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.button4);

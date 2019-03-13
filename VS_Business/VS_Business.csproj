@@ -203,18 +203,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="VS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.Context.cs</LastGenOutput>
-    </None>
     <None Include="VS.edmx.diagram">
       <DependentUpon>VS.edmx</DependentUpon>
-    </None>
-    <None Include="VS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VS.edmx</DependentUpon>
-      <LastGenOutput>VS.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +229,16 @@
     <Content Include="Asset\icons8-shopping-cart-32.png" />
     <Content Include="Asset\icons8-stack-of-money-32.png" />
     <Content Include="Asset\icons8-trash-can-32.png" />
+    <Content Include="VS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VS.edmx</DependentUpon>
+      <LastGenOutput>VS.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
